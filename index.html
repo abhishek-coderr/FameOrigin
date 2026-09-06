@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FameOrigin</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              dark: '#050a18',
+              navy: '#0b142c',
+              card: '#0f1c3d',
+              border: 'rgba(56, 189, 248, 0.15)',
+              blue: '#1d4ed8',
+              accent: '#2563eb',
+              glow: '#38bdf8',
+            }
+          },
+          boxShadow: {
+            'glow-sm': '0 0 15px rgba(56, 189, 248, 0.2)',
+            'glow-md': '0 0 25px rgba(37, 99, 235, 0.35)',
+            'glow-lg': '0 0 45px rgba(37, 99, 235, 0.5)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #050a18;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #2563eb;
+    }
+
+    .glass-panel {
+      background: rgba(13, 23, 49, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card {
+      background: linear-gradient(135deg, rgba(17, 30, 66, 0.6) 0%, rgba(9, 17, 39, 0.8) 100%);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(56, 189, 248, 0.12);
+    }
+    .glass-card:hover {
+      border-color: rgba(56, 189, 248, 0.35);
+      box-shadow: 0 10px 30px -10px rgba(37, 99, 235, 0.3);
+    }
+    .text-gradient {
+      background: linear-gradient(135deg, #ffffff 20%, #93c5fd 60%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .text-gradient-blue {
+      background: linear-gradient(135deg, #60a5fa 0%, #2563eb 50%, #1d4ed8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body class="bg-[#050a18] text-slate-100 font-sans antialiased selection:bg-blue-600 selection:text-white overflow-x-hidden min-h-screen">
+
+  <!-- Top Navigation Bar -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 glass-panel border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Brand Logo -->
+        <a href="#home" onclick="navigateToView('landing')" class="flex items-center gap-3 group">
+          <div class="w-16 h-16 flex items-center justify-center group-hover:scale-105 transition-transform">
+            <img
+              src="./logo.png"
+              alt="FameOrigin Logo"
+              class="w-95 h-95 rounded-lg"
+            />
+          </div>
+          <div>
+            <span class="text-xl font-extrabold tracking-wider text-white uppercase block leading-none">FAME<span class="text-sky-400">ORIGIN</span></span>
+            <span class="text-[10px] tracking-widest text-slate-400 uppercase font-semibold">Artist & Influencer Agency</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
+          <a href="#home" onclick="navigateToView('landing')" class="hover:text-sky-400 transition-colors">Home</a>
+          <a href="#services" onclick="navigateToView('landing')" class="hover:text-sky-400 transition-colors">Services</a>
+          <a href="#platforms" onclick="navigateToView('landing')" class="hover:text-sky-400 transition-colors">Platforms</a>
+          <a href="#team" onclick="navigateToView('landing')" class="hover:text-sky-400 transition-colors">Team</a>
+          <a href="#about" onclick="navigateToView('landing')" class="hover:text-sky-400 transition-colors">About Us</a>
+          <a href="#qa-section" onclick="navigateToView('landing')" class="hover:text-sky-400 transition-colors">Q/A</a>
+        </nav>
+
+        <!-- Right Actions: Artist Login & Register Buttons -->
+        <div class="flex items-center gap-3">
+          <button id="artist-login-nav-btn" onclick="navigateToView('dashboard')" class="px-4 py-2 text-xs sm:text-sm font-semibold text-sky-400 border border-sky-500/40 hover:border-sky-400 hover:bg-sky-500/10 rounded-full transition-all flex items-center gap-2 group">
+            <svg class="w-4 h-4 text-sky-400 group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/>
+            </svg>
+            <span id="nav-login-label">Artist Login</span>
+          </button>
+
+          <button onclick="openRegisterModal()" class="px-4 py-2 text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-blue-600 via-blue-700 to-sky-500 hover:from-blue-500 hover:to-sky-400 rounded-full shadow-glow-sm hover:shadow-glow-md transition-all active:scale-95 flex items-center gap-1.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            <span>Register</span>
+          </button>
+
+          <!-- Mobile Hamburger -->
+          <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-slate-400 hover:text-white rounded-lg focus:outline-none">
+            <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Navigation -->
+      <div id="mobile-menu" class="hidden md:hidden pb-6 pt-2 border-t border-white/5 space-y-3">
+        <a href="#home" onclick="navigateToView('landing'); toggleMobileMenu();" class="block py-2 text-slate-300 hover:text-sky-400 font-medium">Home</a>
+        <a href="#services" onclick="navigateToView('landing'); toggleMobileMenu();" class="block py-2 text-slate-300 hover:text-sky-400 font-medium">Services & Pricing</a>
+        <a href="#platforms" onclick="navigateToView('landing'); toggleMobileMenu();" class="block py-2 text-slate-300 hover:text-sky-400 font-medium">Platforms</a>
+        <a href="#team" onclick="navigateToView('landing'); toggleMobileMenu();" class="block py-2 text-slate-300 hover:text-sky-400 font-medium">Team</a>
+        <a href="#about" onclick="navigateToView('landing'); toggleMobileMenu();" class="block py-2 text-slate-300 hover:text-sky-400 font-medium">About Us</a>
+        <a href="#qa-section" onclick="navigateToView('landing'); toggleMobileMenu();" class="block py-2 text-slate-300 hover:text-sky-400 font-medium">Q/A</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- LANDING PAGE VIEW (Default) -->
+  <!-- ========================================================================= -->
+  <main id="landing-view" class="pt-20">
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-16 px-4">
+      <!-- Ambient Glow Orbs -->
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute bottom-10 right-10 w-80 h-80 bg-sky-500/15 rounded-full blur-3xl pointer-events-none"></div>
+      
+      <div class="max-w-5xl mx-auto text-center relative z-10">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-950/80 border border-sky-500/30 text-sky-300 text-xs font-semibold mb-6 shadow-glow-sm">
+          <span class="w-2 h-2 rounded-full bg-sky-400 animate-ping"></span>
+          Premier Artist & Influencer Management
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+          Scale Your Craft. <br class="hidden sm:inline">
+          <span class="text-gradient">Dominate the Digital Stage.</span>
+        </h1>
+
+        <p class="text-slate-300 text-base sm:text-xl max-w-3xl mx-auto mb-10 leading-relaxed font-light">
+          From 150+ digital streaming platforms to tailored viral social management and 360° artist development. FameOrigin builds, promotes, and manages future legends.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 mb-14">
+          <button onclick="openRegisterModal()" class="w-full sm:w-auto px-8 py-4 text-base font-bold text-white bg-gradient-to-r from-blue-600 via-blue-700 to-sky-500 hover:from-blue-500 hover:to-sky-400 rounded-xl shadow-glow-md hover:shadow-glow-lg transition-all transform hover:-translate-y-0.5">
+            Book a Strategy Meeting
+          </button>
+          <a href="#services" class="w-full sm:w-auto px-8 py-4 text-base font-semibold text-slate-200 hover:text-white glass-panel hover:bg-white/10 rounded-xl border border-white/15 transition-all text-center">
+            Explore Services & Plans
+          </a>
+          <button onclick="navigateToView('dashboard')" class="w-full sm:w-auto px-7 py-4 text-base font-semibold text-sky-300 hover:text-white bg-sky-950/60 hover:bg-sky-900/60 rounded-xl border border-sky-500/30 transition-all flex items-center justify-center gap-2">
+            <span>Demo Artist Dashboard</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </button>
+        </div>
+
+        <!-- Metric Badges -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto pt-6 border-t border-white/10">
+          <div class="p-3 text-center">
+            <div class="text-2xl sm:text-3xl font-extrabold text-white">150+</div>
+            <div class="text-xs text-slate-400 font-medium">Digital Music Stores</div>
+          </div>
+          <div class="p-3 text-center">
+            <div class="text-2xl sm:text-3xl font-extrabold text-sky-400">50M+</div>
+            <div class="text-xs text-slate-400 font-medium">Digital Audience Reach</div>
+          </div>
+          <div class="p-3 text-center">
+            <div class="text-2xl sm:text-3xl font-extrabold text-white">360°</div>
+            <div class="text-xs text-slate-400 font-medium">Management & Support</div>
+          </div>
+          <div class="p-3 text-center">
+            <div class="text-2xl sm:text-3xl font-extrabold text-sky-400">24/7</div>
+            <div class="text-xs text-slate-400 font-medium">Dedicated Consultation</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES & PRICING SECTION -->
+    <section id="services" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="text-xs font-bold uppercase tracking-widest text-sky-400">Structured For Sustainable Growth</span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-2 mb-4">Services & Pricing Architecture</h2>
+        <p class="text-slate-300 text-sm sm:text-base">
+          Transparent, tier-based solutions crafted specifically for independent musicians, playback artists, content creators, and modern digital influencers.
+        </p>
+
+        <!-- Service Category Tabs -->
+        <div class="flex flex-wrap items-center justify-center gap-2 mt-8 p-1.5 glass-panel rounded-2xl max-w-2xl mx-auto">
+          <button onclick="switchServiceCategory('all')" id="tab-all" class="cat-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-blue-600 text-white shadow-glow-sm transition-all">
+            All Services
+          </button>
+          <button onclick="switchServiceCategory('distribution')" id="tab-distribution" class="cat-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-300 hover:text-white transition-all">
+            Music Distribution
+          </button>
+          <button onclick="switchServiceCategory('social')" id="tab-social" class="cat-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-300 hover:text-white transition-all">
+            Social Media
+          </button>
+          <button onclick="switchServiceCategory('artist-management')" id="tab-artist-management" class="cat-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-300 hover:text-white transition-all">
+            360° Management
+          </button>
+          <button onclick="switchServiceCategory('promotion')" id="tab-promotion" class="cat-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-300 hover:text-white transition-all">
+            Promotions & Ads
+          </button>
+        </div>
+      </div>
+
+      <!-- Pricing Grid Container -->
+      <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Card: Music Distribution Starter -->
+        <div class="service-card group glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between" data-category="distribution">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 text-xs font-semibold rounded-full bg-blue-500/10 text-sky-400 border border-sky-500/20">Distribution</span>
+              <span class="text-xs text-slate-400 font-mono">150+ Outlets</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Starter Distribution Plan</h3>
+            <p class="text-slate-300 text-sm mb-6">Standard setup handling for independent singles and releases onto global channels.</p>
+            <div class="mb-6 p-4 rounded-xl bg-blue-950/40 border border-blue-500/20">
+              <div class="flex items-baseline gap-1">
+                <span class="text-3xl font-black text-white">₹2,599</span>
+                <span class="text-xs text-slate-400 font-medium">one-time handling</span>
+              </div>
+              <p class="text-xs text-sky-400 mt-1">₹1,600 initial + ₹999 setup fee</p>
+              <div class="mt-2 text-xs text-slate-300 font-medium">Extra releases: <span class="text-white font-bold">₹200 / song</span></div>
+            </div>
+            <ul class="space-y-3 text-xs sm:text-sm text-slate-300 mb-8">
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Spotify, Apple Music, Gaana, Wynk & 150+ stores</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Official Spotify & YouTube Channel Support</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Instagram Audio & Facebook Music Rights</li>
+            </ul>
+          </div>
+          <button onclick="openRegisterModal('Distribution Starter Plan')" class="w-full py-3 rounded-xl text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 transition-colors">Select Starter Distribution</button>
+        </div>
+
+        <!-- Card: Music Distribution Grow -->
+        <div class="service-card group glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between border-blue-500/40 relative overflow-hidden" data-category="distribution">
+          <div class="absolute top-0 right-0 px-3 py-1 bg-sky-500 text-[10px] font-extrabold uppercase tracking-wider text-slate-950 rounded-bl-xl">Recommended</div>
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 text-xs font-semibold rounded-full bg-sky-500/10 text-sky-300 border border-sky-500/30">Priority Distribution</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Grow Distribution Plan</h3>
+            <p class="text-slate-300 text-sm mb-6">Designed for active artists with regular release pipeline and catalog protection.</p>
+            <div class="mb-6 p-4 rounded-xl bg-blue-950/40 border border-blue-500/20">
+              <div class="flex items-baseline gap-1">
+                <span class="text-3xl font-black text-white">₹5,400</span>
+                <span class="text-xs text-slate-400 font-medium">one-time handling</span>
+              </div>
+              <p class="text-xs text-sky-400 mt-1">₹3,900 initial + ₹1,500 setup fee</p>
+              <div class="mt-2 text-xs text-slate-300 font-medium">Extra releases: <span class="text-white font-bold">₹300 / song</span></div>
+            </div>
+            <ul class="space-y-3 text-xs sm:text-sm text-slate-300 mb-8">
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Full 150+ Worldwide Streaming Distribution</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Fast-track Verification (Spotify Blue Check & YouTube Note)</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Advanced Metadata & Royalty Routing setup</li>
+            </ul>
+          </div>
+          <button onclick="openRegisterModal('Distribution Grow Plan')" class="w-full py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-500 hover:to-sky-400 shadow-glow-sm transition-all">Get Grow Distribution</button>
+        </div>
+
+        <!-- Card: Social Media Beginner -->
+        <div class="service-card group glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between" data-category="social">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 text-xs font-semibold rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Social Management</span>
+              <span class="text-xs text-slate-400">1 Account</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Beginner Social Plan</h3>
+            <p class="text-slate-300 text-sm mb-6">Maintain active presence, daily content scheduling and polished profile identity.</p>
+            <div class="mb-6 p-4 rounded-xl bg-blue-950/40 border border-blue-500/20">
+              <div class="flex items-baseline gap-1">
+                <span class="text-3xl font-black text-white">₹2,999</span>
+                <span class="text-xs text-slate-400 font-medium">/ package</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-1">Includes personalized One-Link Page</p>
+            </div>
+            <ul class="space-y-3 text-xs sm:text-sm text-slate-300 mb-8">
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>1 Social Account Managed</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>1 Post/Day + 2 Stories/Day</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Profile Bio Optimization + CRM Inbox Support</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Foundational Artist SEO Setup</li>
+            </ul>
+          </div>
+          <button onclick="openRegisterModal('Social Beginner Plan')" class="w-full py-3 rounded-xl text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 transition-colors">Start Beginner Social</button>
+        </div>
+
+        <!-- Card: Social Media Working -->
+        <div class="service-card group glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between" data-category="social">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 text-xs font-semibold rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Social Management</span>
+              <span class="text-xs text-slate-400">2 Accounts</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Working Social Plan</h3>
+            <p class="text-slate-300 text-sm mb-6">Double reach across key platforms with artist backlinks and targeted storytelling.</p>
+            <div class="mb-6 p-4 rounded-xl bg-blue-950/40 border border-blue-500/20">
+              <div class="flex items-baseline gap-1">
+                <span class="text-3xl font-black text-white">₹5,999</span>
+                <span class="text-xs text-slate-400 font-medium">/ package</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-1">Includes 1-Link Profile + Artist Backlinks</p>
+            </div>
+            <ul class="space-y-3 text-xs sm:text-sm text-slate-300 mb-8">
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>2 Social Media Accounts Managed</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>2 Posts/Day + 3 Stories/Day</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Artist Backlink Profile Deployment</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Engagement & DM Management Routine</li>
+            </ul>
+          </div>
+          <button onclick="openRegisterModal('Social Working Plan')" class="w-full py-3 rounded-xl text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 transition-colors">Start Working Plan</button>
+        </div>
+
+        <!-- Card: Social Media Rising -->
+        <div class="service-card group glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between" data-category="social">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 text-xs font-semibold rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">Omni-Channel</span>
+              <span class="text-xs text-slate-400">4 Accounts</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Rising Social Plan</h3>
+            <p class="text-slate-300 text-sm mb-6">Full social dominance across Instagram, Facebook, Twitter/X, and Google Presence.</p>
+            <div class="mb-6 p-4 rounded-xl bg-blue-950/40 border border-blue-500/20">
+              <div class="flex items-baseline gap-1">
+                <span class="text-3xl font-black text-white">₹12,000</span>
+                <span class="text-xs text-slate-400 font-medium">/ package</span>
+              </div>
+              <p class="text-xs text-sky-400 mt-1">Google Knowledge Profile Integration</p>
+            </div>
+            <ul class="space-y-3 text-xs sm:text-sm text-slate-300 mb-8">
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>4 Accounts (IG, FB, Twitter/X, SmartLink)</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>2 Posts/Day + 4 Stories/Day</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Google Knowledge Panel & Visibility Setup</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>High-Priority Content & Copy Optimization</li>
+            </ul>
+          </div>
+          <button onclick="openRegisterModal('Social Rising Plan')" class="w-full py-3 rounded-xl text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 transition-colors">Start Rising Social</button>
+        </div>
+
+        <!-- Card: Artist Management Starter -->
+        <div class="service-card group glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between" data-category="artist-management">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 text-xs font-semibold rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">360° Management</span>
+              <span class="text-xs text-slate-400">Entry Tier</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Management Starter</h3>
+            <p class="text-slate-300 text-sm mb-6">Combined distribution, social handling, Google presence and ongoing digital direction.</p>
+            <div class="mb-6 p-4 rounded-xl bg-blue-950/40 border border-blue-500/20">
+              <div class="flex items-baseline gap-1">
+                <span class="text-3xl font-black text-white">₹7,500</span>
+                <span class="text-xs text-slate-400 font-medium">One-Time</span>
+              </div>
+              <div class="text-sm font-bold text-sky-400 mt-1">+ ₹2,500 / Month</div>
+              <p class="text-[11px] text-emerald-400 mt-1">★ Includes 1 Year Free Music Distribution</p>
+            </div>
+            <ul class="space-y-3 text-xs sm:text-sm text-slate-300 mb-8">
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Distribution Starter + Social Beginner included</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Support & Management for 2 Accounts</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>One-Page Artist Profile Website + Google Appearance</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Promotion Credit + Personal Artist Dashboard</li>
+            </ul>
+          </div>
+          <button onclick="openRegisterModal('Artist Management Starter')" class="w-full py-3 rounded-xl text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 transition-colors">Apply for Starter 360°</button>
+        </div>
+
+        <!-- Card: Artist Management Bright -->
+        <div class="service-card group glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between border-sky-400/40 relative" data-category="artist-management">
+          <div class="absolute top-0 right-0 px-3 py-1 bg-gradient-to-r from-blue-600 to-sky-400 text-[10px] font-extrabold uppercase tracking-wider text-white rounded-bl-xl">Artist Favorite</div>
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 text-xs font-semibold rounded-full bg-sky-500/10 text-sky-300 border border-sky-500/30">Growth Tier</span>
+              <span class="text-xs text-slate-400">3 Accounts</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Management Bright</h3>
+            <p class="text-slate-300 text-sm mb-6">Expansive management with collaborations, appearances, and Distribution Grow inclusion.</p>
+            <div class="mb-6 p-4 rounded-xl bg-blue-950/40 border border-blue-500/20">
+              <div class="flex items-baseline gap-1">
+                <span class="text-3xl font-black text-white">₹10,000</span>
+                <span class="text-xs text-slate-400 font-medium">One-Time</span>
+              </div>
+              <div class="text-sm font-bold text-sky-400 mt-1">+ ₹5,500 / Month</div>
+              <p class="text-[11px] text-emerald-400 mt-1">★ Free Distribution Included</p>
+            </div>
+            <ul class="space-y-3 text-xs sm:text-sm text-slate-300 mb-8">
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Distribution Grow + Social Working included</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Management across 3 social profiles</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>One-Page Artist Profile + Google Profile SEO</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Artist Collaborations & Appearance Opportunities</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Personal Dashboard & Direct Account Handler</li>
+            </ul>
+          </div>
+          <button onclick="openRegisterModal('Artist Management Bright')" class="w-full py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-500 hover:to-sky-400 shadow-glow-sm transition-all">Select Bright Plan</button>
+        </div>
+
+        <!-- Card: Artist Management Flash -->
+        <div class="service-card group glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between" data-category="artist-management">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 text-xs font-semibold rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/30">VIP Tier</span>
+              <span class="text-xs text-slate-400">Studio & Collabs</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Management Flash</h3>
+            <p class="text-slate-300 text-sm mb-6">Top tier agency backing with specialized studio sessions and direct industry pipelines.</p>
+            <div class="mb-6 p-4 rounded-xl bg-blue-950/40 border border-blue-500/20">
+              <div class="flex items-baseline gap-1">
+                <span class="text-3xl font-black text-white">₹15,000</span>
+                <span class="text-xs text-slate-400 font-medium">One-Time</span>
+              </div>
+              <div class="text-sm font-bold text-sky-400 mt-1">+ ₹5,000 / Month</div>
+              <p class="text-[11px] text-emerald-400 mt-1">★ 1-Year Free Distribution + Studio Sessions</p>
+            </div>
+            <ul class="space-y-3 text-xs sm:text-sm text-slate-300 mb-8">
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Professional Studio Session Support</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Full Distribution & Social Media Handling</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>High-Tier Collaborations & Brand Opportunities</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Custom Artist One-Page & Google Panel</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Direct Line to FameOrigin Executive Team</li>
+            </ul>
+          </div>
+          <button onclick="openRegisterModal('Artist Management Flash')" class="w-full py-3 rounded-xl text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 transition-colors">Join Flash Tier</button>
+        </div>
+
+        <!-- Card: Custom Promotion Services -->
+        <div class="service-card group glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between md:col-span-2 lg:col-span-3" data-category="promotion">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+            <div class="lg:col-span-2">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="px-3 py-1 text-xs font-semibold rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">Targeted Reach</span>
+                <span class="text-xs text-slate-400">Custom Campaign Budgets</span>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-3">Targeted Promotions & Advertising Campaigns</h3>
+              <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                Tailored according to your campaign objective, music genre, target city/country demographics, and reach goals. Powered by enterprise Meta Ads Manager, Google Ads, and curated music creator pages.
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                <div class="p-3 rounded-xl bg-blue-950/60 border border-white/5">
+                  <div class="font-bold text-white mb-1">Meta & Google Ads</div>
+                  <div class="text-slate-400">Audience targeting, YouTube video ads, and streaming conversions.</div>
+                </div>
+                <div class="p-3 rounded-xl bg-blue-950/60 border border-white/5">
+                  <div class="font-bold text-white mb-1">Influencer & Reel Push</div>
+                  <div class="text-slate-400">Audio sync, viral reel challenges, and high-reach creator shoutouts.</div>
+                </div>
+                <div class="p-3 rounded-xl bg-blue-950/60 border border-white/5">
+                  <div class="font-bold text-white mb-1">Google Visibility</div>
+                  <div class="text-slate-400">Knowledge panel acceleration and digital footprint ranking.</div>
+                </div>
+              </div>
+            </div>
+            <div class="p-6 rounded-2xl bg-gradient-to-br from-blue-900/40 to-slate-900/80 border border-sky-500/20 flex flex-col justify-center text-center">
+              <span class="text-xs text-slate-400 font-semibold uppercase tracking-wider mb-1">Pricing Model</span>
+              <div class="text-2xl sm:text-3xl font-extrabold text-white mb-2">Custom Quote</div>
+              <p class="text-xs text-slate-300 mb-6">Budget matches campaign scale & ad spend flexibility</p>
+              <button onclick="openRegisterModal('Custom Promotion Campaign')" class="w-full py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-blue-600 via-sky-600 to-cyan-500 hover:opacity-95 shadow-glow-sm transition-all">
+                Request Promotion Quote
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PLATFORMS & CONTRIBUTORS SECTION -->
+    <section id="platforms" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/10">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="text-xs font-bold uppercase tracking-widest text-sky-400">Global Reach & Network</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-4">Platforms & Distribution Ecosystem</h2>
+        <p class="text-slate-300 text-sm sm:text-base">
+          Every track delivered through FameOrigin is encoded, licensed, and published directly to over 150+ major streaming networks, social channels, and media hubs worldwide.
+        </p>
+      </div>
+
+      <!-- Platform Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        
+        <!-- Platform: Spotify -->
+        <div class="glass-card p-5 rounded-2xl flex flex-col items-center text-center hover:-translate-y-1 transition-transform">
+          <div class="w-12 h-12 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-3 border border-emerald-500/20">
+            <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424c-.18.295-.563.387-.857.207-2.35-1.435-5.308-1.76-8.793-.963-.335.077-.67-.133-.746-.469-.077-.334.132-.67.467-.746 3.808-.87 7.077-.497 9.721 1.121.294.18.388.563.208.85zm1.226-2.724c-.226.367-.709.482-1.076.257-2.69-1.654-6.79-2.133-9.97-1.168-.413.125-.853-.108-.978-.521-.125-.414.108-.854.521-.979 3.633-1.102 8.147-.568 11.246 1.335.367.225.482.709.257 1.076zm.105-2.836C14.692 8.95 9.375 8.775 6.297 9.71c-.494.15-1.02-.132-1.17-.626-.15-.493.132-1.02.626-1.17 3.532-1.072 9.404-.866 13.115 1.338.445.264.59.838.327 1.282-.264.444-.838.59-1.282.328z"/></svg>
+          </div>
+          <span class="font-bold text-white text-sm">Spotify</span>
+          <span class="text-[11px] text-slate-400">Official Channel Setup</span>
+        </div>
+
+        <!-- Platform: Apple Music -->
+        <div class="glass-card p-5 rounded-2xl flex flex-col items-center text-center hover:-translate-y-1 transition-transform">
+          <div class="w-12 h-12 rounded-full bg-rose-500/10 flex items-center justify-center text-rose-400 mb-3 border border-rose-500/20">
+            <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.61-.75 1.04-1.8 0.92-2.85-.92.04-2.02.62-2.67 1.37-.56.65-1.06 1.71-.93 2.73 1.03.08 2.07-.5 2.68-1.25z"/></svg>
+          </div>
+          <span class="font-bold text-white text-sm">Apple Music</span>
+          <span class="text-[11px] text-slate-400">Dolby & Lossless</span>
+        </div>
+
+        <!-- Platform: YouTube Music -->
+        <div class="glass-card p-5 rounded-2xl flex flex-col items-center text-center hover:-translate-y-1 transition-transform">
+          <div class="w-12 h-12 rounded-full bg-red-500/10 flex items-center justify-center text-red-400 mb-3 border border-red-500/20">
+            <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </div>
+          <span class="font-bold text-white text-sm">YouTube</span>
+          <span class="text-[11px] text-slate-400">OAC Music Badge</span>
+        </div>
+
+        <!-- Platform: Instagram & Meta -->
+        <div class="glass-card p-5 rounded-2xl flex flex-col items-center text-center hover:-translate-y-1 transition-transform">
+          <div class="w-12 h-12 rounded-full bg-pink-500/10 flex items-center justify-center text-pink-400 mb-3 border border-pink-500/20">
+            <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </div>
+          <span class="font-bold text-white text-sm">Instagram</span>
+          <span class="text-[11px] text-slate-400">Reels Audio Library</span>
+        </div>
+
+        <!-- Platform: Gaana & JioSaavn -->
+        <div class="glass-card p-5 rounded-2xl flex flex-col items-center text-center hover:-translate-y-1 transition-transform">
+          <div class="w-12 h-12 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-400 mb-3 border border-amber-500/20">
+            <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+          </div>
+          <span class="font-bold text-white text-sm">Gaana & JioSaavn</span>
+          <span class="text-[11px] text-slate-400">Pan-India Reach</span>
+        </div>
+
+        <!-- Platform: Google & Meta Ads -->
+        <div class="glass-card p-5 rounded-2xl flex flex-col items-center text-center hover:-translate-y-1 transition-transform">
+          <div class="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400 mb-3 border border-blue-500/20">
+            <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+          </div>
+          <span class="font-bold text-white text-sm">Google & Meta Ads</span>
+          <span class="text-[11px] text-slate-400">Ad Networks & Search</span>
+        </div>
+
+      </div>
+
+      <!-- Extended Platform Banner -->
+      <div class="mt-8 p-4 rounded-xl glass-panel text-center text-xs sm:text-sm text-slate-300 flex flex-wrap items-center justify-center gap-3">
+        <span class="text-sky-400 font-bold">Also Delivering To:</span>
+        <span class="px-2.5 py-1 rounded-md bg-white/5">Amazon Music</span>
+        <span class="px-2.5 py-1 rounded-md bg-white/5">Wynk Music</span>
+        <span class="px-2.5 py-1 rounded-md bg-white/5">Facebook Rights</span>
+        <span class="px-2.5 py-1 rounded-md bg-white/5">Deezer</span>
+        <span class="px-2.5 py-1 rounded-md bg-white/5">Tidal</span>
+        <span class="px-2.5 py-1 rounded-md bg-white/5">Pandora</span>
+        <span class="px-2.5 py-1 rounded-md bg-white/5">TikTok Sound Catalog</span>
+      </div>
+    </section>
+
+    <!-- OUR TEAM SECTION -->
+    <section id="team" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/10">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-widest text-sky-400">Leadership & Expertise</span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-2 mb-4">Meet The Team Behind Your Fame</h2>
+        <p class="text-slate-300 text-sm sm:text-base">
+          A synergy of technical engineering, viral music marketing, and creative sound direction guiding creators to the next level.
+        </p>
+      </div>
+
+      <!-- 3 Executive Team Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Member 1: Abhishek -->
+        <div class="glass-card rounded-2xl p-8 text-center relative overflow-hidden group">
+          <div class="w-28 h-28 mx-auto rounded-2xl bg-gradient-to-tr from-blue-600 to-sky-400 p-1 mb-6 shadow-glow-sm group-hover:scale-105 transition-all">
+            <div class="w-full h-full rounded-xl bg-slate-900 flex items-center justify-center font-black text-3xl text-sky-400">
+              AB
+            </div>
+          </div>
+          <div class="inline-block px-3 py-1 rounded-full bg-blue-500/10 text-sky-400 text-xs font-semibold mb-3 border border-blue-500/20">
+            Manager (Developer)
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-2">Abhishek</h3>
+          <p class="text-slate-300 text-sm mb-6 leading-relaxed">
+            Head of Operations & Technology. Architect of the artist portal infrastructure, smart link networks, metadata routing, and CRM backend operations.
+          </p>
+          <div class="flex items-center justify-center gap-3 text-xs text-slate-400">
+            <span class="px-2.5 py-1 rounded bg-white/5">Web Infrastructure</span>
+            <span class="px-2.5 py-1 rounded bg-white/5">Client Operations</span>
+          </div>
+        </div>
+
+        <!-- Member 2: Kapil -->
+        <div class="glass-card rounded-2xl p-8 text-center relative overflow-hidden group border-sky-400/30">
+          <div class="w-28 h-28 mx-auto rounded-2xl bg-gradient-to-tr from-cyan-500 to-blue-600 p-1 mb-6 shadow-glow-sm group-hover:scale-105 transition-all">
+            <div class="w-full h-full rounded-xl bg-slate-900 flex items-center justify-center font-black text-3xl text-cyan-400">
+              KP
+            </div>
+          </div>
+          <div class="inline-block px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 text-xs font-semibold mb-3 border border-cyan-500/20">
+            Marketing Head (Marketing Executive)
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-2">Kapil</h3>
+          <p class="text-slate-300 text-sm mb-6 leading-relaxed">
+            Architect of viral artist campaigns and algorithmic reach. Leads Meta Ads, Reel trend amplification, influencer networks, and digital brand positioning.
+          </p>
+          <div class="flex items-center justify-center gap-3 text-xs text-slate-400">
+            <span class="px-2.5 py-1 rounded bg-white/5">Meta & Google Ads</span>
+            <span class="px-2.5 py-1 rounded bg-white/5">Growth Hacking</span>
+          </div>
+        </div>
+
+        <!-- Member 3: Navkiran -->
+        <div class="glass-card rounded-2xl p-8 text-center relative overflow-hidden group">
+          <div class="w-28 h-28 mx-auto rounded-2xl bg-gradient-to-tr from-indigo-500 to-purple-600 p-1 mb-6 shadow-glow-sm group-hover:scale-105 transition-all">
+            <div class="w-full h-full rounded-xl bg-slate-900 flex items-center justify-center font-black text-3xl text-indigo-400">
+              NK
+            </div>
+          </div>
+          <div class="inline-block px-3 py-1 rounded-full bg-purple-500/10 text-purple-300 text-xs font-semibold mb-3 border border-purple-500/20">
+            Music Director
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-2">Navkiran</h3>
+          <p class="text-slate-300 text-sm mb-6 leading-relaxed">
+            Creative visionary directing music aesthetics, sonic production, studio curation, and strategic collaborations across regional & mainstream music spheres.
+          </p>
+          <div class="flex items-center justify-center gap-3 text-xs text-slate-400">
+            <span class="px-2.5 py-1 rounded bg-white/5">Studio Sessions</span>
+            <span class="px-2.5 py-1 rounded bg-white/5">Artist Direction</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT US SECTION -->
+    <section id="about" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-7">
+          <span class="text-xs font-bold uppercase tracking-widest text-sky-400">About FameOrigin</span>
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-2 mb-6">
+            Bridging The Gap Between Raw Talent and Mainstream Stardom.
+          </h2>
+          <div class="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+            <p>
+              In today's hyper-crowded creator economy, extraordinary talent isn't enough on its own. It requires uncompromising music distribution, precision-targeted ad spend, consistent content strategy, and a dedicated team fighting in your corner.
+            </p>
+            <p>
+              At <span class="text-white font-semibold">FameOrigin</span>, we exist to give independent musicians and creators complete creative freedom while we handle the digital machinery: global platform delivery across 150+ stores, Google Knowledge profiles, viral social campaigns, and high-level collaborations.
+            </p>
+            <p>
+              Whether you are dropping your debut track or looking to scale from regional renown to national prominence, our personalized roadmap ensures every single play and follower counts.
+            </p>
+          </div>
+
+          <div class="mt-8 flex flex-wrap items-center gap-4">
+            <button onclick="openRegisterModal()" class="px-6 py-3 rounded-xl font-semibold text-white bg-blue-600 hover:bg-blue-500 shadow-glow-sm transition-all flex items-center gap-2">
+              <span>Connect With Us Today</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+            <a href="https://wa.me/918307401517" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-xl font-semibold text-emerald-400 bg-emerald-950/40 hover:bg-emerald-900/40 border border-emerald-500/30 transition-all flex items-center gap-2">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              <span>Chat on WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5">
+          <div class="glass-card p-6 sm:p-8 rounded-3xl relative overflow-hidden">
+            <div class="absolute -right-12 -bottom-12 w-48 h-48 bg-blue-500/10 rounded-full blur-2xl"></div>
+            <h4 class="text-lg font-bold text-white mb-4">Why Top Artists Partner With FameOrigin</h4>
+            <div class="space-y-4">
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-lg bg-blue-600/20 text-sky-400 flex items-center justify-center font-bold shrink-0">1</div>
+                <div>
+                  <h5 class="text-white font-semibold text-sm">100% Royalty Transparency</h5>
+                  <p class="text-xs text-slate-300">You retain your creative masters and transparent royalty accounting directly to your portal.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-lg bg-blue-600/20 text-sky-400 flex items-center justify-center font-bold shrink-0">2</div>
+                <div>
+                  <h5 class="text-white font-semibold text-sm">Dedicated Account Managers</h5>
+                  <p class="text-xs text-slate-300">No automated bot replies. Direct WhatsApp and dashboard ticket line with real executives.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-lg bg-blue-600/20 text-sky-400 flex items-center justify-center font-bold shrink-0">3</div>
+                <div>
+                  <h5 class="text-white font-semibold text-sm">Multi-Platform Synergy</h5>
+                  <p class="text-xs text-slate-300">Synchronized drops across Spotify, YouTube OAC, Apple Music, and Instagram reels simultaneously.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISITOR Q/A & FAQ SECTION -->
+    <section id="qa-section" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/10">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-widest text-sky-400">Have Questions?</span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-2 mb-4">Frequently Asked Questions</h2>
+        <p class="text-slate-300 text-sm sm:text-base">
+          Everything you need to know about distribution timelines, pricing plans, and onboarding.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        
+        <!-- FAQ Accordion (Left 7 Cols) -->
+        <div class="lg:col-span-7 space-y-4">
+          <!-- Accordion Item 1 -->
+          <div class="glass-card rounded-2xl p-5 cursor-pointer transition-all" onclick="toggleFaq(1)">
+            <div class="flex items-center justify-between">
+              <h4 class="font-semibold text-white text-base">How long does music distribution take onto Spotify and Apple Music?</h4>
+              <svg id="faq-icon-1" class="w-5 h-5 text-sky-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </div>
+            <div id="faq-answer-1" class="hidden mt-3 text-sm text-slate-300 leading-relaxed border-t border-white/5 pt-3">
+              Standard release distribution typically takes 3 to 5 business days for major platforms like Spotify, Apple Music, and Amazon Music. For coordinated playlist pitching, we recommend submitting your song files at least 10–14 days prior to your official release date.
+            </div>
+          </div>
+
+          <!-- Accordion Item 2 -->
+          <div class="glass-card rounded-2xl p-5 cursor-pointer transition-all" onclick="toggleFaq(2)">
+            <div class="flex items-center justify-between">
+              <h4 class="font-semibold text-white text-base">Do I keep 100% rights and royalties to my music?</h4>
+              <svg id="faq-icon-2" class="w-5 h-5 text-sky-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </div>
+            <div id="faq-answer-2" class="hidden mt-3 text-sm text-slate-300 leading-relaxed border-t border-white/5 pt-3">
+              Yes, absolutely. FameOrigin acts as your management, promotion, and distribution catalyst. You always retain complete master recording ownership and copyright. Royalties are accounted directly to your artist profile without hidden rights forfeiture.
+            </div>
+          </div>
+
+          <!-- Accordion Item 3 -->
+          <div class="glass-card rounded-2xl p-5 cursor-pointer transition-all" onclick="toggleFaq(3)">
+            <div class="flex items-center justify-between">
+              <h4 class="font-semibold text-white text-base">How does Social Media Management work for artists?</h4>
+              <svg id="faq-icon-3" class="w-5 h-5 text-sky-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </div>
+            <div id="faq-answer-3" class="hidden mt-3 text-sm text-slate-300 leading-relaxed border-t border-white/5 pt-3">
+              Depending on whether you choose the Beginner, Working, or Rising plan, our marketing team designs, schedules, and writes copy for daily posts and stories, optimizes your bio link, manages audience interactions, and executes Google Knowledge profile SEO.
+            </div>
+          </div>
+
+          <!-- Accordion Item 4 -->
+          <div class="glass-card rounded-2xl p-5 cursor-pointer transition-all" onclick="toggleFaq(4)">
+            <div class="flex items-center justify-between">
+              <h4 class="font-semibold text-white text-base">What are the benefits of the 360° Artist Management plans?</h4>
+              <svg id="faq-icon-4" class="w-5 h-5 text-sky-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </div>
+            <div id="faq-answer-4" class="hidden mt-3 text-sm text-slate-300 leading-relaxed border-t border-white/5 pt-3">
+              The 360° plans (Starter, Bright, and Flash) package distribution, social media management, personal profile websites, Google Panel verification, and custom promotions into one cohesive monthly retainer, saving you money while providing dedicated guidance.
+            </div>
+          </div>
+        </div>
+
+        <!-- Ask a Question Interactive Box (Right 5 Cols) -->
+        <div class="lg:col-span-5">
+          <div class="glass-card rounded-2xl p-6 sm:p-8">
+            <h3 class="text-xl font-bold text-white mb-2">Ask FameOrigin Directly</h3>
+            <p class="text-slate-300 text-xs sm:text-sm mb-6">Have a specific question about your upcoming release or custom promotion? Send it directly to our team.</p>
+            
+            <form id="visitor-question-form" onsubmit="handleVisitorQuestion(event)" class="space-y-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Your Name</label>
+                <input type="text" id="visitor-name" required placeholder="e.g. Rahul Sharma" class="w-full px-4 py-2.5 rounded-xl bg-slate-900/80 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-sky-400 text-sm">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Email or Phone</label>
+                <input type="text" id="visitor-contact" required placeholder="your.email@gmail.com or 9876543210" class="w-full px-4 py-2.5 rounded-xl bg-slate-900/80 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-sky-400 text-sm">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Your Question / Inquiry</label>
+                <textarea id="visitor-msg" rows="3" required placeholder="Tell us what you'd like to ask regarding pricing, distribution or marketing..." class="w-full px-4 py-2.5 rounded-xl bg-slate-900/80 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-sky-400 text-sm resize-none"></textarea>
+              </div>
+              <button type="submit" class="w-full py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-500 hover:to-sky-400 shadow-glow-sm text-sm transition-all">
+                Send Question
+              </button>
+            </form>
+
+            <div id="question-feedback" class="hidden mt-4 p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs text-center">
+              ✓ Your question has been received! Manager Abhishek or Kapil will get back to you shortly.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <footer class="glass-panel border-t border-white/10 pt-16 pb-12 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+        
+        <!-- Brand Info -->
+        <div class="md:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full p-0.5 bg-gradient-to-tr from-blue-600 to-sky-400">
+              <div class="w-full h-full bg-[#050a18] rounded-full flex items-center justify-center font-bold text-sky-400 text-sm">FO</div>
+            </div>
+            <span class="text-xl font-extrabold text-white tracking-wider">FAME<span class="text-sky-400">ORIGIN</span></span>
+          </div>
+          <p class="text-slate-400 text-sm max-w-md leading-relaxed">
+            Professional Artist & Influencer Management Agency. Empowering creators with high-fidelity music distribution, viral social campaigns, and 360° career management.
+          </p>
+          <div class="text-xs text-slate-500">
+            Official Services & Pricing Guide — FameOrigin
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-wider text-white mb-4">Quick Links</h4>
+          <ul class="space-y-2.5 text-sm text-slate-400">
+            <li><a href="#home" onclick="navigateToView('landing')" class="hover:text-sky-400 transition-colors">Home</a></li>
+            <li><a href="#services" onclick="navigateToView('landing')" class="hover:text-sky-400 transition-colors">Services & Plans</a></li>
+            <li><a href="#platforms" onclick="navigateToView('landing')" class="hover:text-sky-400 transition-colors">150+ Platforms</a></li>
+            <li><a href="#team" onclick="navigateToView('landing')" class="hover:text-sky-400 transition-colors">Leadership Team</a></li>
+            <li><a href="#about" onclick="navigateToView('landing')" class="hover:text-sky-400 transition-colors">About Agency</a></li>
+            <li><button onclick="navigateToView('dashboard')" class="text-sky-400 hover:underline">Artist Portal Login</button></li>
+          </ul>
+        </div>
+
+        <!-- Connect & Social Handles -->
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-wider text-white mb-4">Direct Contact</h4>
+          <ul class="space-y-3 text-sm text-slate-300">
+            <li>
+              <a href="https://www.instagram.com/fame.origin/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-pink-400 transition-colors group">
+                <span class="p-2 rounded-lg bg-white/5 group-hover:bg-pink-500/10 text-pink-400">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </span>
+                <span>@fame.origin</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/918307401517" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-emerald-400 transition-colors group">
+                <span class="p-2 rounded-lg bg-white/5 group-hover:bg-emerald-500/10 text-emerald-400">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                </span>
+                <span>WhatsApp: +91 83074 01517</span>
+              </a>
+            </li>
+            <li class="flex items-center gap-2 text-slate-400">
+              <span class="p-2 rounded-lg bg-white/5 text-sky-400">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </span>
+              <span>fameorigin.contact@gmail.com</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="max-w-7xl mx-auto pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <div>© 2026 FameOrigin Agency (Fameorigin.com). All rights reserved.</div>
+        <div class="flex items-center gap-6">
+          <a href="#services" class="hover:text-slate-400 transition-colors">Distribution Terms</a>
+          <a href="#services" class="hover:text-slate-400 transition-colors">Privacy Policy</a>
+          <a href="#services" class="hover:text-slate-400 transition-colors">Pricing Guide</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- ARTIST DASHBOARD VIEW (Interactive Client Portal) -->
+  <!-- ========================================================================= -->
+  <div id="dashboard-view" class="hidden min-h-screen pt-20 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    
+    <!-- Top Dashboard Header with Artist Name Centered -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 py-6 border-b border-white/10 mb-8">
+      
+      <!-- Back to Website Button -->
+      <button onclick="navigateToView('landing')" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-300 hover:text-white glass-panel hover:bg-white/10 flex items-center gap-2 border border-white/10 transition-all">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+        <span>Return to Main Website</span>
+      </button>
+
+      <!-- Center Artist Name Display -->
+      <div class="text-center">
+        <div class="inline-flex items-center gap-2">
+          <h1 class="text-2xl sm:text-3xl font-black text-white tracking-wide" id="active-artist-name">Aaryan Sharma</h1>
+          <span class="p-1 rounded-full bg-blue-500/20 text-sky-400" title="Verified FameOrigin Artist">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          </span>
+        </div>
+        <div class="text-xs text-sky-400 font-semibold tracking-wider uppercase mt-0.5">Artist & Influencer Portal • Plan: Flash 360°</div>
+      </div>
+
+      <!-- Quick Action Right Status -->
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          Manager Online
+        </span>
+      </div>
+    </div>
+
+    <!-- Dashboard Content Layout: Left Sidebar + Right Dynamic Main Panel -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Left Sidebar Panel (4 Cols) -->
+      <aside class="lg:col-span-4 glass-card rounded-2xl p-6 border border-white/10 space-y-6">
+        
+        <!-- Artist Profile Summary Box -->
+        <div class="text-center pb-6 border-b border-white/10">
+          <div class="relative w-24 h-24 mx-auto mb-3">
+            <div class="w-full h-full rounded-full p-1 bg-gradient-to-tr from-blue-500 via-sky-400 to-indigo-600 shadow-glow-sm">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&auto=format&fit=crop&q=80" alt="Artist Profile" class="w-full h-full object-cover rounded-full">
+            </div>
+            <span class="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-blue-600 border-2 border-slate-900 flex items-center justify-center text-[10px] text-white">✓</span>
+          </div>
+          <h3 class="text-lg font-bold text-white">Aaryan Sharma</h3>
+          <p class="text-xs text-slate-400 font-mono">ID: #FO-8842-IN</p>
+          <div class="mt-2 inline-block px-3 py-0.5 text-[11px] font-semibold text-sky-300 bg-sky-950/80 border border-sky-500/30 rounded-full">
+            Verified Creator • Flash VIP
+          </div>
+        </div>
+
+        <!-- Sidebar Navigation Sections -->
+        <nav class="space-y-1.5 text-sm font-medium">
+          <!-- Item 1: Social Services -->
+          <button onclick="switchDashboardTab('social')" id="dash-btn-social" class="dash-tab-btn w-full px-4 py-3 rounded-xl flex items-center justify-between text-white bg-blue-600 shadow-glow-sm transition-all text-left">
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-sky-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+              <span>Social Services</span>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/20">4 Active</span>
+          </button>
+
+          <!-- Item 2: Services & Plans -->
+          <button onclick="switchDashboardTab('plans')" id="dash-btn-plans" class="dash-tab-btn w-full px-4 py-3 rounded-xl flex items-center justify-between text-slate-300 hover:text-white hover:bg-white/5 transition-all text-left">
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+              <span>Services & Plans</span>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300">Live</span>
+          </button>
+
+          <!-- Item 3: Songs Catalogue -->
+          <button onclick="switchDashboardTab('catalogue')" id="dash-btn-catalogue" class="dash-tab-btn w-full px-4 py-3 rounded-xl flex items-center justify-between text-slate-300 hover:text-white hover:bg-white/5 transition-all text-left">
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/></svg>
+              <span>Songs Catalogue</span>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-sky-500/20 text-sky-300">4 Released</span>
+          </button>
+
+          <!-- Item 4: Finance -->
+          <button onclick="switchDashboardTab('finance')" id="dash-btn-finance" class="dash-tab-btn w-full px-4 py-3 rounded-xl flex items-center justify-between text-slate-300 hover:text-white hover:bg-white/5 transition-all text-left">
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span>Finance & Invoices</span>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-300">₹25,000</span>
+          </button>
+
+          <!-- Item 5: Personal Q/A -->
+          <button onclick="switchDashboardTab('chat')" id="dash-btn-chat" class="dash-tab-btn w-full px-4 py-3 rounded-xl flex items-center justify-between text-slate-300 hover:text-white hover:bg-white/5 transition-all text-left">
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+              <span>Personal Q/A</span>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-sky-500/20 text-sky-400">Abhishek</span>
+          </button>
+        </nav>
+
+        <!-- Dedicated Manager Card -->
+        <div class="p-4 rounded-xl bg-blue-950/50 border border-sky-500/20 text-xs">
+          <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Assigned Account Lead</span>
+          <div class="flex items-center gap-3 mt-2">
+            <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">AB</div>
+            <div>
+              <div class="text-white font-bold">Abhishek (Manager)</div>
+              <div class="text-[11px] text-emerald-400 flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Active on Portal
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- Right Main Content Panel (8 Cols) -->
+      <div class="lg:col-span-8 space-y-6">
+        
+        <!-- ================= TAB 1: SOCIAL SERVICES ================= -->
+        <div id="tab-content-social" class="dash-tab-view space-y-6">
+          <div class="glass-card rounded-2xl p-6 sm:p-8">
+            <div class="flex items-center justify-between mb-6">
+              <div>
+                <h2 class="text-xl font-bold text-white">Social Media Accounts & Performance</h2>
+                <p class="text-xs sm:text-sm text-slate-400">Active accounts managed under your FameOrigin 360° retainer</p>
+              </div>
+              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/20 text-sky-400 border border-blue-500/30">Auto Sync Active</span>
+            </div>
+
+            <!-- Social Accounts Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+              <!-- Instagram -->
+              <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center font-bold">IG</div>
+                  <div>
+                    <div class="font-bold text-white text-sm">@aaryan.official</div>
+                    <div class="text-xs text-slate-400">Instagram • 142.8K Followers</div>
+                  </div>
+                </div>
+                <span class="text-xs font-semibold text-emerald-400">+3.4K this wk</span>
+              </div>
+
+              <!-- Spotify -->
+              <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold">SP</div>
+                  <div>
+                    <div class="font-bold text-white text-sm">Aaryan Sharma</div>
+                    <div class="text-xs text-slate-400">Spotify • 85.2K Monthly</div>
+                  </div>
+                </div>
+                <span class="text-xs font-semibold text-emerald-400">+12% streams</span>
+              </div>
+
+              <!-- YouTube OAC -->
+              <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-red-500/10 text-red-400 flex items-center justify-center font-bold">YT</div>
+                  <div>
+                    <div class="font-bold text-white text-sm">Aaryan Music (Official)</div>
+                    <div class="text-xs text-slate-400">YouTube • 48.5K Subscribers</div>
+                  </div>
+                </div>
+                <span class="text-xs font-semibold text-sky-400">OAC Verified</span>
+              </div>
+
+              <!-- Google Knowledge Panel -->
+              <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold">G</div>
+                  <div>
+                    <div class="font-bold text-white text-sm">Google Knowledge Panel</div>
+                    <div class="text-xs text-slate-400">Search Presence Active</div>
+                  </div>
+                </div>
+                <span class="text-xs font-semibold text-emerald-400">Live</span>
+              </div>
+            </div>
+
+            <!-- One-Link Smart Profile Showcase -->
+            <div class="p-4 rounded-xl bg-gradient-to-r from-blue-950/60 to-slate-900 border border-sky-500/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div>
+                <span class="text-[10px] uppercase font-bold text-sky-400 tracking-wider">Your Custom Smart Link</span>
+                <div class="font-mono text-white text-sm font-bold mt-0.5">fameorigin.com/artist/aaryansharma</div>
+              </div>
+              <button onclick="copySmartLink()" id="copy-btn" class="px-4 py-2 text-xs font-semibold text-white bg-blue-600 hover:bg-blue-500 rounded-lg shadow-sm transition-all">
+                Copy Smart Link
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= TAB 2: SERVICES & PLANS ================= -->
+        <div id="tab-content-plans" class="dash-tab-view hidden space-y-6">
+          <div class="glass-card rounded-2xl p-6 sm:p-8">
+            <div class="flex items-center justify-between mb-6">
+              <div>
+                <h2 class="text-xl font-bold text-white">Active Plan & Inclusions</h2>
+                <p class="text-xs sm:text-sm text-slate-400">Current subscription and active deliverables with FameOrigin</p>
+              </div>
+              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">Active Retainer</span>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-blue-950/40 border border-sky-500/30 mb-6">
+              <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                  <span class="text-xs font-bold text-sky-400 uppercase tracking-widest">Enrolled Management Tier</span>
+                  <div class="text-2xl font-black text-white mt-1">Artist Management — Flash Plan</div>
+                  <p class="text-xs text-slate-300 mt-1">₹15,000 One-time setup fee + ₹5,000 monthly retainer.</p>
+                </div>
+                <div class="text-right">
+                  <span class="text-xs text-slate-400 block">Next Renewal Date</span>
+                  <span class="text-sm font-bold text-white">October 15, 2026</span>
+                  <span class="text-[11px] text-emerald-400 block">Auto-Invoiced</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Inclusions Checklist -->
+            <h4 class="text-sm font-bold text-white mb-3 uppercase tracking-wider">Plan Inclusions Delivered</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-slate-300">
+              <div class="p-3 rounded-xl bg-slate-900/50 border border-white/5 flex items-center gap-2">
+                <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>1 Year Free Worldwide Music Distribution</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900/50 border border-white/5 flex items-center gap-2">
+                <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Social Media Beginner & Working Management</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900/50 border border-white/5 flex items-center gap-2">
+                <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Google Knowledge Profile Appearance</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900/50 border border-white/5 flex items-center gap-2">
+                <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Collaborations & Appearance Opportunities</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900/50 border border-white/5 flex items-center gap-2">
+                <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Professional Studio Session Support</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900/50 border border-white/5 flex items-center gap-2">
+                <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Personal Dashboard & Dedicated Handler (Abhishek)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= TAB 3: SONGS CATALOGUE ================= -->
+        <div id="tab-content-catalogue" class="dash-tab-view hidden space-y-6">
+          <div class="glass-card rounded-2xl p-6 sm:p-8">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+              <div>
+                <h2 class="text-xl font-bold text-white">Released Songs Catalogue</h2>
+                <p class="text-xs sm:text-sm text-slate-400">All tracks distributed & promoted through FameOrigin network</p>
+              </div>
+              <button onclick="simulateUploadNewSong()" class="px-4 py-2 text-xs sm:text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 rounded-xl shadow-sm transition-all flex items-center gap-2 self-start sm:self-auto">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                <span>Submit New Track</span>
+              </button>
+            </div>
+
+            <!-- Track List Table -->
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-xs sm:text-sm text-slate-300">
+                <thead class="text-slate-400 uppercase text-[10px] tracking-wider border-b border-white/10 pb-2">
+                  <tr>
+                    <th class="pb-3">Track</th>
+                    <th class="pb-3">Release Date</th>
+                    <th class="pb-3">Total Streams</th>
+                    <th class="pb-3">Platforms</th>
+                    <th class="pb-3 text-right">Action</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-white/5">
+                  <!-- Track 1 -->
+                  <tr class="hover:bg-white/5 transition-colors">
+                    <td class="py-3.5 flex items-center gap-3">
+                      <div class="w-10 h-10 rounded-lg bg-blue-900/60 flex items-center justify-center font-bold text-sky-400 text-xs shrink-0">
+                        ♫
+                      </div>
+                      <div>
+                        <div class="font-bold text-white text-sm">Midnight Reverie</div>
+                        <div class="text-[11px] text-slate-400">ISRC: IN-FO-26-00124</div>
+                      </div>
+                    </td>
+                    <td class="py-3.5 text-xs">Aug 14, 2026</td>
+                    <td class="py-3.5 font-bold text-white">482,900</td>
+                    <td class="py-3.5">
+                      <span class="px-2 py-0.5 rounded text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">150+ Live</span>
+                    </td>
+                    <td class="py-3.5 text-right">
+                      <button onclick="playSongDemo('Midnight Reverie')" class="p-2 rounded-lg bg-white/5 hover:bg-blue-600 text-sky-300 hover:text-white transition-colors" title="Play Preview">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/></svg>
+                      </button>
+                    </td>
+                  </tr>
+
+                  <!-- Track 2 -->
+                  <tr class="hover:bg-white/5 transition-colors">
+                    <td class="py-3.5 flex items-center gap-3">
+                      <div class="w-10 h-10 rounded-lg bg-purple-900/60 flex items-center justify-center font-bold text-purple-300 text-xs shrink-0">
+                        ♫
+                      </div>
+                      <div>
+                        <div class="font-bold text-white text-sm">Blue Horizon</div>
+                        <div class="text-[11px] text-slate-400">ISRC: IN-FO-26-00089</div>
+                      </div>
+                    </td>
+                    <td class="py-3.5 text-xs">Jul 02, 2026</td>
+                    <td class="py-3.5 font-bold text-white">715,400</td>
+                    <td class="py-3.5">
+                      <span class="px-2 py-0.5 rounded text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">150+ Live</span>
+                    </td>
+                    <td class="py-3.5 text-right">
+                      <button onclick="playSongDemo('Blue Horizon')" class="p-2 rounded-lg bg-white/5 hover:bg-blue-600 text-sky-300 hover:text-white transition-colors" title="Play Preview">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/></svg>
+                      </button>
+                    </td>
+                  </tr>
+
+                  <!-- Track 3 -->
+                  <tr class="hover:bg-white/5 transition-colors">
+                    <td class="py-3.5 flex items-center gap-3">
+                      <div class="w-10 h-10 rounded-lg bg-cyan-900/60 flex items-center justify-center font-bold text-cyan-300 text-xs shrink-0">
+                        ♫
+                      </div>
+                      <div>
+                        <div class="font-bold text-white text-sm">Dilli Ke Taare (Acoustic)</div>
+                        <div class="text-[11px] text-slate-400">ISRC: IN-FO-26-00045</div>
+                      </div>
+                    </td>
+                    <td class="py-3.5 text-xs">May 19, 2026</td>
+                    <td class="py-3.5 font-bold text-white">230,100</td>
+                    <td class="py-3.5">
+                      <span class="px-2 py-0.5 rounded text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">150+ Live</span>
+                    </td>
+                    <td class="py-3.5 text-right">
+                      <button onclick="playSongDemo('Dilli Ke Taare (Acoustic)')" class="p-2 rounded-lg bg-white/5 hover:bg-blue-600 text-sky-300 hover:text-white transition-colors" title="Play Preview">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/></svg>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Active Mock Player Bar -->
+            <div id="mock-player" class="hidden mt-6 p-4 rounded-xl bg-blue-950/80 border border-sky-500/40 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <span class="w-2.5 h-2.5 rounded-full bg-sky-400 animate-ping"></span>
+                <div>
+                  <span class="text-xs text-slate-400 uppercase">Now Playing Mock Stream:</span>
+                  <div class="text-sm font-bold text-white" id="now-playing-title">Midnight Reverie</div>
+                </div>
+              </div>
+              <button onclick="stopSongDemo()" class="text-xs font-semibold text-slate-400 hover:text-white">Stop</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= TAB 4: FINANCE ================= -->
+        <div id="tab-content-finance" class="dash-tab-view hidden space-y-6">
+          <div class="glass-card rounded-2xl p-6 sm:p-8">
+            <div class="flex items-center justify-between mb-6">
+              <div>
+                <h2 class="text-xl font-bold text-white">Finance & Investment Overview</h2>
+                <p class="text-xs sm:text-sm text-slate-400">Record of plans, management retainers, and promotion spends</p>
+              </div>
+              <button onclick="triggerInvoiceDownload()" class="px-3.5 py-2 text-xs font-semibold text-sky-400 border border-sky-500/30 hover:bg-sky-500/10 rounded-xl transition-all">
+                Download Statements
+              </button>
+            </div>
+
+            <!-- Financial Summary Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+              <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5">
+                <span class="text-xs text-slate-400">Total Money Spent</span>
+                <div class="text-2xl font-black text-white mt-1">₹25,000</div>
+                <span class="text-[11px] text-sky-400">All services to date</span>
+              </div>
+              <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5">
+                <span class="text-xs text-slate-400">Active Monthly Retainer</span>
+                <div class="text-2xl font-black text-white mt-1">₹5,000</div>
+                <span class="text-[11px] text-emerald-400">Flash 360° Plan</span>
+              </div>
+              <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5">
+                <span class="text-xs text-slate-400">Accumulated Royalties</span>
+                <div class="text-2xl font-black text-emerald-400 mt-1">₹68,450</div>
+                <span class="text-[11px] text-slate-400">Direct streaming payout</span>
+              </div>
+            </div>
+
+            <!-- Invoice History -->
+            <h4 class="text-sm font-bold text-white mb-3 uppercase tracking-wider">Payment Receipts & Ledger</h4>
+            <div class="space-y-2 text-xs sm:text-sm">
+              <div class="p-3 rounded-xl bg-slate-900/40 border border-white/5 flex items-center justify-between">
+                <div>
+                  <div class="font-bold text-white">Monthly Artist Management (Flash)</div>
+                  <div class="text-xs text-slate-400">Invoice #FO-INV-2026-09 • Sept 15, 2026</div>
+                </div>
+                <div class="text-right">
+                  <div class="font-bold text-white">₹5,000</div>
+                  <span class="text-[10px] text-emerald-400 font-semibold">PAID</span>
+                </div>
+              </div>
+
+              <div class="p-3 rounded-xl bg-slate-900/40 border border-white/5 flex items-center justify-between">
+                <div>
+                  <div class="font-bold text-white">Flash Plan Initial One-Time Setup</div>
+                  <div class="text-xs text-slate-400">Invoice #FO-INV-2026-08 • Aug 15, 2026</div>
+                </div>
+                <div class="text-right">
+                  <div class="font-bold text-white">₹15,000</div>
+                  <span class="text-[10px] text-emerald-400 font-semibold">PAID</span>
+                </div>
+              </div>
+
+              <div class="p-3 rounded-xl bg-slate-900/40 border border-white/5 flex items-center justify-between">
+                <div>
+                  <div class="font-bold text-white">Targeted Reels & Meta Ad Campaign</div>
+                  <div class="text-xs text-slate-400">Invoice #FO-INV-2026-07 • July 20, 2026</div>
+                </div>
+                <div class="text-right">
+                  <div class="font-bold text-white">₹5,000</div>
+                  <span class="text-[10px] text-emerald-400 font-semibold">PAID</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= TAB 5: PERSONAL Q/A (Direct Ticket & Chat) ================= -->
+        <div id="tab-content-chat" class="dash-tab-view hidden space-y-6">
+          <div class="glass-card rounded-2xl p-6 sm:p-8">
+            <div class="flex items-center justify-between mb-4 pb-4 border-b border-white/10">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">AB</div>
+                <div>
+                  <h2 class="text-base font-bold text-white">Personal Q/A with Lead Manager Abhishek</h2>
+                  <p class="text-xs text-emerald-400 flex items-center gap-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Priority Line • FameOrigin Team
+                  </p>
+                </div>
+              </div>
+              <span class="text-xs text-slate-400 font-mono">Channel #VIP-AARYAN</span>
+            </div>
+
+            <!-- Messages Log Container -->
+            <div id="chat-messages-container" class="h-64 overflow-y-auto space-y-3 p-3 bg-slate-950/60 rounded-xl border border-white/5 text-xs sm:text-sm">
+              <!-- Manager message -->
+              <div class="flex items-start gap-2.5 max-w-md">
+                <div class="w-7 h-7 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-[10px] shrink-0">AB</div>
+                <div class="p-3 rounded-2xl rounded-tl-none bg-blue-900/40 border border-blue-500/20 text-slate-200">
+                  Hey Aaryan! Abhishek here. The Spotify editorial pitch for "Midnight Reverie" has been submitted, and your verified Knowledge Panel is ranking #1 on Google. Let me know if you need any adjustments for this weekend's release.
+                  <span class="block text-[9px] text-slate-400 mt-1">Today at 11:20 AM</span>
+                </div>
+              </div>
+
+              <!-- Artist message -->
+              <div class="flex items-start justify-end gap-2.5 max-w-md ml-auto">
+                <div class="p-3 rounded-2xl rounded-tr-none bg-sky-600 text-white">
+                  Thanks Abhishek! Can Kapil also push the Instagram Reels sound campaign on the top Punjabi music curator pages this Friday?
+                  <span class="block text-[9px] text-sky-200 mt-1">Today at 11:35 AM</span>
+                </div>
+                <div class="w-7 h-7 rounded-full bg-slate-800 text-white flex items-center justify-center font-bold text-[10px] shrink-0">AS</div>
+              </div>
+
+              <!-- Manager reply -->
+              <div class="flex items-start gap-2.5 max-w-md">
+                <div class="w-7 h-7 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-[10px] shrink-0">AB</div>
+                <div class="p-3 rounded-2xl rounded-tl-none bg-blue-900/40 border border-blue-500/20 text-slate-200">
+                  Already coordinated with Kapil! The creator batch is scheduled for Friday evening. You're fully covered!
+                  <span class="block text-[9px] text-slate-400 mt-1">Today at 11:42 AM</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Send Message Input Bar -->
+            <form onsubmit="handlePersonalQaMessage(event)" class="mt-4 flex gap-2">
+              <input type="text" id="personal-qa-input" required placeholder="Type your inquiry or request to manager Abhishek..." class="flex-1 px-4 py-2.5 rounded-xl bg-slate-900/80 border border-white/10 text-white text-xs sm:text-sm focus:outline-none focus:border-sky-400 placeholder-slate-500">
+              <button type="submit" class="px-5 py-2.5 rounded-xl font-semibold text-white bg-blue-600 hover:bg-blue-500 text-xs sm:text-sm transition-all flex items-center gap-1.5">
+                <span>Send</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- REGISTRATION / MEETING MODAL -->
+  <!-- ========================================================================= -->
+  <div id="register-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+    <div class="glass-card max-w-lg w-full rounded-3xl p-6 sm:p-8 border border-sky-500/30 relative shadow-glow-lg animate-in fade-in zoom-in-95 duration-200">
+      
+      <!-- Close Button -->
+      <button onclick="closeRegisterModal()" class="absolute top-5 right-5 p-2 rounded-full text-slate-400 hover:text-white hover:bg-white/10 transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <!-- Modal Header -->
+      <div class="mb-6">
+        <span class="text-xs font-bold uppercase tracking-widest text-sky-400">Step Into Fame</span>
+        <h3 class="text-2xl font-black text-white mt-1">Book a Strategy Meeting</h3>
+        <p class="text-slate-300 text-xs sm:text-sm mt-1">
+          Share your details. Our agency team will review your profile and arrange a 1-on-1 consultation.
+        </p>
+      </div>
+
+      <!-- Registration Form with Mandatory Fields -->
+      <form id="register-meeting-form" onsubmit="handleRegistrationSubmit(event)" class="space-y-3.5">
+        
+        <!-- Name -->
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1 uppercase tracking-wider">Full Name <span class="text-rose-400">*</span></label>
+          <input type="text" id="reg-name" required placeholder="e.g. Aaryan Sharma / Stage Name" class="w-full px-4 py-2.5 rounded-xl bg-slate-900/90 border border-white/10 text-white text-sm focus:outline-none focus:border-sky-400 placeholder-slate-500">
+        </div>
+
+        <!-- Email -->
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1 uppercase tracking-wider">Email Address <span class="text-rose-400">*</span></label>
+          <input type="email" id="reg-email" required placeholder="your.name@gmail.com" class="w-full px-4 py-2.5 rounded-xl bg-slate-900/90 border border-white/10 text-white text-sm focus:outline-none focus:border-sky-400 placeholder-slate-500">
+        </div>
+
+        <!-- Two Cols: Contact No + Location -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1 uppercase tracking-wider">Contact No. <span class="text-rose-400">*</span></label>
+            <input type="tel" id="reg-phone" required placeholder="+91 8307401517" class="w-full px-4 py-2.5 rounded-xl bg-slate-900/90 border border-white/10 text-white text-sm focus:outline-none focus:border-sky-400 placeholder-slate-500">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1 uppercase tracking-wider">Location / City <span class="text-rose-400">*</span></label>
+            <input type="text" id="reg-location" required placeholder="e.g. Mumbai / Delhi / Mohali" class="w-full px-4 py-2.5 rounded-xl bg-slate-900/90 border border-white/10 text-white text-sm focus:outline-none focus:border-sky-400 placeholder-slate-500">
+          </div>
+        </div>
+
+        <!-- Instagram Handle -->
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1 uppercase tracking-wider">Instagram Handle <span class="text-rose-400">*</span></label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400 text-sm">@</span>
+            <input type="text" id="reg-insta" required placeholder="your_instagram_handle" class="w-full pl-8 pr-4 py-2.5 rounded-xl bg-slate-900/90 border border-white/10 text-white text-sm focus:outline-none focus:border-sky-400 placeholder-slate-500">
+          </div>
+        </div>
+
+        <!-- Desired Service or Plan Pre-fill -->
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1 uppercase tracking-wider">Interested Plan or Service</label>
+          <input type="text" id="reg-service" placeholder="e.g. 360° Flash Plan / Music Distribution / Promotion" class="w-full px-4 py-2.5 rounded-xl bg-slate-900/90 border border-white/10 text-white text-sm focus:outline-none focus:border-sky-400 placeholder-slate-500">
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="w-full mt-4 py-3 rounded-xl font-bold text-white bg-gradient-to-r from-blue-600 via-blue-700 to-sky-500 hover:from-blue-500 hover:to-sky-400 shadow-glow-md transition-all text-sm">
+          Send Information & Schedule Call
+        </button>
+      </form>
+
+      <!-- Success Confirmation View -->
+      <div id="register-success-view" class="hidden text-center py-6">
+        <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-4 border border-emerald-500/30">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <h4 class="text-2xl font-bold text-white mb-2">Meeting Request Confirmed!</h4>
+        <p class="text-slate-300 text-xs sm:text-sm max-w-sm mx-auto mb-6" id="success-confirmation-text">
+          Thank you! Manager Abhishek and marketing executive Kapil have received your information and will reach out via WhatsApp / Email.
+        </p>
+        <button onclick="closeRegisterModal()" class="px-6 py-2.5 rounded-xl font-semibold text-white bg-blue-600 hover:bg-blue-500 text-xs sm:text-sm">
+          Back to FameOrigin
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // State controller for Views: 'landing' or 'dashboard'
+    let currentView = 'landing';
+
+    function navigateToView(viewName) {
+      const landingView = document.getElementById('landing-view');
+      const dashboardView = document.getElementById('dashboard-view');
+      const navLoginLabel = document.getElementById('nav-login-label');
+
+      if (viewName === 'dashboard') {
+        currentView = 'dashboard';
+        landingView.classList.add('hidden');
+        dashboardView.classList.remove('hidden');
+        navLoginLabel.textContent = 'Dashboard Active';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        currentView = 'landing';
+        dashboardView.classList.add('hidden');
+        landingView.classList.remove('hidden');
+        navLoginLabel.textContent = 'Artist Login';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    // Dashboard Tab Switcher
+    function switchDashboardTab(tabKey) {
+      // Hide all tab views
+      document.querySelectorAll('.dash-tab-view').forEach(view => {
+        view.classList.add('hidden');
+      });
+
+      // Reset button styles
+      document.querySelectorAll('.dash-tab-btn').forEach(btn => {
+        btn.classList.remove('bg-blue-600', 'text-white', 'shadow-glow-sm');
+        btn.classList.add('text-slate-300');
+      });
+
+      // Show selected tab
+      const targetView = document.getElementById(`tab-content-${tabKey}`);
+      const targetBtn = document.getElementById(`dash-btn-${tabKey}`);
+      if (targetView) targetView.classList.remove('hidden');
+      if (targetBtn) {
+        targetBtn.classList.remove('text-slate-300');
+        targetBtn.classList.add('bg-blue-600', 'text-white', 'shadow-glow-sm');
+      }
+    }
+
+    // Services Filter Tabs
+    function switchServiceCategory(categoryKey) {
+      // Highlight tab
+      document.querySelectorAll('.cat-tab').forEach(tab => {
+        tab.classList.remove('bg-blue-600', 'text-white', 'shadow-glow-sm');
+        tab.classList.add('text-slate-300');
+      });
+      const activeTab = document.getElementById(`tab-${categoryKey}`);
+      if (activeTab) {
+        activeTab.classList.remove('text-slate-300');
+        activeTab.classList.add('bg-blue-600', 'text-white', 'shadow-glow-sm');
+      }
+
+      // Filter cards
+      document.querySelectorAll('.service-card').forEach(card => {
+        if (categoryKey === 'all') {
+          card.classList.remove('hidden');
+        } else {
+          const cardCat = card.getAttribute('data-category');
+          if (cardCat === categoryKey) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        }
+      });
+    }
+
+    // FAQ Accordion
+    function toggleFaq(index) {
+      const answer = document.getElementById(`faq-answer-${index}`);
+      const icon = document.getElementById(`faq-icon-${index}`);
+      if (answer.classList.contains('hidden')) {
+        answer.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+      } else {
+        answer.classList.add('hidden');
+        icon.classList.remove('rotate-180');
+      }
+    }
+
+    // Modal Controls
+    function openRegisterModal(prefillPlan = '') {
+      const modal = document.getElementById('register-modal');
+      const form = document.getElementById('register-meeting-form');
+      const successView = document.getElementById('register-success-view');
+      const serviceInput = document.getElementById('reg-service');
+
+      if (prefillPlan && serviceInput) {
+        serviceInput.value = prefillPlan;
+      }
+      form.classList.remove('hidden');
+      successView.classList.add('hidden');
+      modal.classList.remove('hidden');
+    }
+
+    function closeRegisterModal() {
+      const modal = document.getElementById('register-modal');
+      modal.classList.add('hidden');
+    }
+
+    // Register Form Submit Handling
+    function handleRegistrationSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('reg-name').value;
+      const phone = document.getElementById('reg-phone').value;
+      const insta = document.getElementById('reg-insta').value;
+      
+      const form = document.getElementById('register-meeting-form');
+      const successView = document.getElementById('register-success-view');
+      const confirmationText = document.getElementById('success-confirmation-text');
+
+      confirmationText.innerHTML = `Thank you <strong>${name}</strong> (@${insta}). Our executive team will contact you at <strong>${phone}</strong> or on WhatsApp within 4 hours.`;
+      
+      form.classList.add('hidden');
+      successView.classList.remove('hidden');
+      form.reset();
+    }
+
+    // Visitor Question Form
+    function handleVisitorQuestion(e) {
+      e.preventDefault();
+      const feedback = document.getElementById('question-feedback');
+      const form = document.getElementById('visitor-question-form');
+      feedback.classList.remove('hidden');
+      form.reset();
+      setTimeout(() => {
+        feedback.classList.add('hidden');
+      }, 7000);
+    }
+
+    // Personal Q/A Chat Simulator
+    function handlePersonalQaMessage(e) {
+      e.preventDefault();
+      const input = document.getElementById('personal-qa-input');
+      const container = document.getElementById('chat-messages-container');
+      const text = input.value.trim();
+      if (!text) return;
+
+      // Append user msg
+      const userBubble = document.createElement('div');
+      userBubble.className = "flex items-start justify-end gap-2.5 max-w-md ml-auto";
+      userBubble.innerHTML = `
+        <div class="p-3 rounded-2xl rounded-tr-none bg-sky-600 text-white">
+          ${text}
+          <span class="block text-[9px] text-sky-200 mt-1">Just now</span>
+        </div>
+        <div class="w-7 h-7 rounded-full bg-slate-800 text-white flex items-center justify-center font-bold text-[10px] shrink-0">AS</div>
+      `;
+      container.appendChild(userBubble);
+      input.value = '';
+      container.scrollTop = container.scrollHeight;
+
+      // Simulated auto-manager response
+      setTimeout(() => {
+        const mgrBubble = document.createElement('div');
+        mgrBubble.className = "flex items-start gap-2.5 max-w-md";
+        mgrBubble.innerHTML = `
+          <div class="w-7 h-7 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-[10px] shrink-0">AB</div>
+          <div class="p-3 rounded-2xl rounded-tl-none bg-blue-900/40 border border-blue-500/20 text-slate-200">
+            Got it, Aaryan! Updating your ticket record right now. The FameOrigin team is on it!
+            <span class="block text-[9px] text-slate-400 mt-1">Just now</span>
+          </div>
+        `;
+        container.appendChild(mgrBubble);
+        container.scrollTop = container.scrollHeight;
+      }, 1200);
+    }
+
+    // Copy Smart Link Mock
+    function copySmartLink() {
+      const dummy = document.createElement("input");
+      document.body.appendChild(dummy);
+      dummy.value = "https://fameorigin.com/artist/aaryansharma";
+      dummy.select();
+      document.execCommand("copy");
+      document.body.removeChild(dummy);
+
+      const btn = document.getElementById('copy-btn');
+      btn.textContent = 'Copied!';
+      btn.classList.add('bg-emerald-600');
+      setTimeout(() => {
+        btn.textContent = 'Copy Smart Link';
+        btn.classList.remove('bg-emerald-600');
+      }, 2000);
+    }
+
+    // Audio preview simulator
+    function playSongDemo(songName) {
+      const player = document.getElementById('mock-player');
+      const title = document.getElementById('now-playing-title');
+      player.classList.remove('hidden');
+      title.textContent = songName;
+    }
+    function stopSongDemo() {
+      const player = document.getElementById('mock-player');
+      player.classList.add('hidden');
+    }
+
+    function simulateUploadNewSong() {
+      openRegisterModal('New Song Distribution Release');
+    }
+
+    function triggerInvoiceDownload() {
+      const toast = document.createElement('div');
+      toast.className = 'fixed bottom-6 right-6 z-50 px-4 py-3 rounded-xl bg-blue-900 text-white border border-sky-400 shadow-glow-md text-xs';
+      toast.textContent = 'Statement PDF generated for #FO-8842-IN. Download complete!';
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 3500);
+    }
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+  </script>
+</body>
+</html>
