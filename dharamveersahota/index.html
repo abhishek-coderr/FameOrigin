@@ -88,19 +88,29 @@
       <a href="#home" class="flex items-center gap-1.5 group">
         <span class="text-2xl sm:text-3xl font-black tracking-tighter text-white uppercase font-display">Dharamveer Sahota</span>
       </a>
+
+      <!-- Powered By Branding -->
+      <div class="flex items-center gap-2">
+        <span class="text-[10px] sm:text-xs uppercase tracking-wider text-dim font-medium">Powered by</span>
+        <a href="https://fameorigin.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 hover:opacity-80 transition-opacity">
+          <div class="w-10 h-10 flex items-center justify-center group-hover:scale-105 transition-transform">
+            <img src="/logo.png" alt="FameOrigin Logo" class="w-95 h-95 rounded-lg">
+          </div>
+        </a>
+      </div>
     </div>
   </header>
 
   <main class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-8 space-y-8">
 
-    <!-- SECTION 1: HERO (3-Card Layout) -->
+    <!-- SECTION 1: HERO -->
     <section id="home" class="grid grid-cols-1 md:grid-cols-12 gap-5">
       
-      <!-- Card 1: Artist Portrait (Left) -->
+      <!-- Card 1: Artist Portrait -->
       <div class="md:col-span-4 dharamveer-card p-3 overflow-hidden flex flex-col items-center justify-center">
         <div class="relative w-full h-[360px] sm:h-[400px] rounded-2xl overflow-hidden bg-gradient-to-t from-black/80 via-transparent to-transparent">
           <img 
-            src="" 
+            src="dharamveerProfile.jpeg" 
             alt="Dharamveer Portrait"
             class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
           >
@@ -108,11 +118,10 @@
         </div>
       </div>
 
-      <!-- Card 2: Artist Main Details & Bio (Center) -->
+      <!-- Card 2: Artist Main Details & Bio -->
       <div class="md:col-span-5 dharamveer-card p-6 sm:p-8 flex flex-col justify-center">
         <div class="flex items-center gap-2 mb-2">
           <span class="text-[11px] font-extrabold uppercase tracking-widest bg-zinc-800 text-zinc-300 px-2 py-0.5 rounded">Artist</span>
-          <!-- Verified check badge -->
           <span class="text-sky-400 flex items-center" title="Verified Artist">
             <svg class="w-4 h-4 fill-sky-400 text-black" viewBox="0 0 24 24">
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15-5-5 1.41-1.41L11 14.17l7.59-7.59L20 8l-9 9z"/>
@@ -131,7 +140,6 @@
           Dharamveer is an independent artist creating music that connects emotions with real life experiences. His sound blends contemporary vibes with authentic lyrics.
         </p>
 
-        <!-- Hero CTAs -->
         <div class="flex flex-wrap items-center gap-3">
           <a href="#releases" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-black font-bold text-xs sm:text-sm hover:bg-zinc-200 transition active:scale-95 shadow-md">
             <span>Stream My Music</span>
@@ -139,7 +147,7 @@
         </div>
       </div>
 
-      <!-- Card 3: Artist Metadata (Right) -->
+      <!-- Card 3: Artist Metadata -->
       <div class="md:col-span-3 dharamveer-card p-6 flex flex-col justify-between space-y-4">
         <!-- Genre -->
         <div class="flex items-start gap-3">
@@ -148,7 +156,7 @@
           </div>
           <div>
             <span class="text-[11px] font-semibold text-dim block">Genre</span>
-            <span class="text-xs sm:text-sm font-bold text-white">Hip Hop / Pop</span>
+            <span class="text-xs sm:text-sm font-bold text-white">Punjabi</span>
           </div>
         </div>
 
@@ -159,7 +167,7 @@
           </div>
           <div>
             <span class="text-[11px] font-semibold text-dim block">Hometown</span>
-            <span class="text-xs sm:text-sm font-bold text-white">India</span>
+            <span class="text-xs sm:text-sm font-bold text-white">Mohali,India</span>
           </div>
         </div>
 
@@ -170,7 +178,7 @@
           </div>
           <div>
             <span class="text-[11px] font-semibold text-dim block">Active Since</span>
-            <span class="text-xs sm:text-sm font-bold text-white">2021</span>
+            <span class="text-xs sm:text-sm font-bold text-white">2015</span>
           </div>
         </div>
 
@@ -201,7 +209,7 @@
 
     </section>
 
-    <!-- SECTION 2: CONNECT WITH DHARAMVEER (8 Cards Grid) -->
+    <!-- SECTION 2: CONNECT WITH DHARAMVEER -->
     <section class="dharamveer-card p-6">
       <h2 class="text-xs sm:text-sm font-bold uppercase tracking-wider text-dim mb-4">
         Connect With Dharamveer
@@ -210,77 +218,45 @@
       <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
         
         <!-- Instagram -->
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="dharamveer-card-inner hover:bg-surface-cardHover p-3 rounded-xl flex flex-col items-center justify-center gap-2 group transition-all duration-200">
+        <a href="https://www.instagram.com/its.dharamveer.sahota" target="_blank" rel="noopener noreferrer" class="dharamveer-card-inner hover:bg-surface-cardHover p-3 rounded-xl flex flex-col items-center justify-center gap-2 group transition-all duration-200">
           <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-yellow-500 via-rose-500 to-purple-600 flex items-center justify-center text-white shadow-sm group-hover:scale-110 transition-transform">
-            <i data-lucide="instagram" class="w-5 h-5"></i>
+            <svg class="w-5 h-5 fill-none stroke-current stroke-2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+            </svg>
           </div>
           <span class="text-xs font-semibold text-zinc-300 group-hover:text-white">Instagram</span>
         </a>
 
-        <!-- YouTube -->
-        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="dharamveer-card-inner hover:bg-surface-cardHover p-3 rounded-xl flex flex-col items-center justify-center gap-2 group transition-all duration-200">
+        <!-- Gmail -->
+        <a href="mailto:singhdharamber944@gmail.com" class="dharamveer-card-inner hover:bg-surface-cardHover p-3 rounded-xl flex flex-col items-center justify-center gap-2 group transition-all duration-200">
           <div class="w-10 h-10 rounded-xl bg-red-600 flex items-center justify-center text-white shadow-sm group-hover:scale-110 transition-transform">
-            <i data-lucide="youtube" class="w-5 h-5"></i>
+            <svg class="w-5 h-5 fill-none stroke-current stroke-2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="16" x="2" y="4" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
           </div>
-          <span class="text-xs font-semibold text-zinc-300 group-hover:text-white">YouTube</span>
-        </a>
-
-        <!-- Spotify -->
-        <a href="https://spotify.com" target="_blank" rel="noopener noreferrer" class="dharamveer-card-inner hover:bg-surface-cardHover p-3 rounded-xl flex flex-col items-center justify-center gap-2 group transition-all duration-200">
-          <div class="w-10 h-10 rounded-xl bg-emerald-500 flex items-center justify-center text-black shadow-sm group-hover:scale-110 transition-transform">
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-          </div>
-          <span class="text-xs font-semibold text-zinc-300 group-hover:text-white">Spotify</span>
-        </a>
-
-        <!-- Apple Music -->
-        <a href="https://music.apple.com" target="_blank" rel="noopener noreferrer" class="dharamveer-card-inner hover:bg-surface-cardHover p-3 rounded-xl flex flex-col items-center justify-center gap-2 group transition-all duration-200">
-          <div class="w-10 h-10 rounded-xl bg-rose-500 flex items-center justify-center text-white shadow-sm group-hover:scale-110 transition-transform">
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 1.01-2.85-.9.04-1.99.6-2.61 1.34-.55.63-1.03 1.66-.99 2.69 1.01.08 2.05-.52 2.59-1.18z"/></svg>
-          </div>
-          <span class="text-xs font-semibold text-zinc-300 group-hover:text-white">Apple Music</span>
-        </a>
-
-        <!-- SoundCloud -->
-        <a href="https://soundcloud.com" target="_blank" rel="noopener noreferrer" class="dharamveer-card-inner hover:bg-surface-cardHover p-3 rounded-xl flex flex-col items-center justify-center gap-2 group transition-all duration-200">
-          <div class="w-10 h-10 rounded-xl bg-amber-600 flex items-center justify-center text-white shadow-sm group-hover:scale-110 transition-transform">
-            <i data-lucide="cloud" class="w-5 h-5"></i>
-          </div>
-          <span class="text-xs font-semibold text-zinc-300 group-hover:text-white">SoundCloud</span>
+          <span class="text-xs font-semibold text-zinc-300 group-hover:text-white">Email Us</span>
         </a>
 
         <!-- Facebook -->
-        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="dharamveer-card-inner hover:bg-surface-cardHover p-3 rounded-xl flex flex-col items-center justify-center gap-2 group transition-all duration-200">
+        <a href="https://www.facebook.com/its.dharamveer.sahota/" target="_blank" rel="noopener noreferrer" class="dharamveer-card-inner hover:bg-surface-cardHover p-3 rounded-xl flex flex-col items-center justify-center gap-2 group transition-all duration-200">
           <div class="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-sm group-hover:scale-110 transition-transform">
-            <i data-lucide="facebook" class="w-5 h-5"></i>
+            <svg class="w-5 h-5 fill-currentColor" viewBox="0 0 24 24">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
           </div>
           <span class="text-xs font-semibold text-zinc-300 group-hover:text-white">Facebook</span>
-        </a>
-
-        <!-- Twitter / X -->
-        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="dharamveer-card-inner hover:bg-surface-cardHover p-3 rounded-xl flex flex-col items-center justify-center gap-2 group transition-all duration-200">
-          <div class="w-10 h-10 rounded-xl bg-black border border-surface-borderLight flex items-center justify-center text-white shadow-sm group-hover:scale-110 transition-transform">
-            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          </div>
-          <span class="text-xs font-semibold text-zinc-300 group-hover:text-white">Twitter / X</span>
-        </a>
-
-        <!-- TikTok -->
-        <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="dharamveer-card-inner hover:bg-surface-cardHover p-3 rounded-xl flex flex-col items-center justify-center gap-2 group transition-all duration-200">
-          <div class="w-10 h-10 rounded-xl bg-black border border-surface-borderLight flex items-center justify-center text-white shadow-sm group-hover:scale-110 transition-transform">
-            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-1.01-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.01 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
-          </div>
-          <span class="text-xs font-semibold text-zinc-300 group-hover:text-white">TikTok</span>
         </a>
 
       </div>
     </section>
 
-    <!-- SECTION 3: ABOUT DHARAMVEER (Bio, Stats & Hero Feature Card) -->
+    <!-- SECTION 3: ABOUT DHARAMVEER -->
     <section id="about" class="dharamveer-card p-6 sm:p-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         
-        <!-- Left: Text Bio & 3 Stat Blocks -->
         <div class="lg:col-span-6 space-y-6">
           <h2 class="text-xs sm:text-sm font-bold uppercase tracking-wider text-dim">
             About Dharamveer
@@ -290,39 +266,33 @@
             Dharamveer is a passionate singer, songwriter and performer. His music reflects stories of life, dreams, struggles and the journey to success. With a unique style and dedication, Dharamveer is building a global community through his art.
           </p>
 
-          <!-- 3 Stats Counter Row -->
           <div class="grid grid-cols-3 gap-3 pt-2">
-            <!-- Stat 1 -->
             <div class="dharamveer-card-inner p-4 rounded-xl text-center">
               <i data-lucide="music-2" class="w-5 h-5 text-indigo-400 mx-auto mb-1.5"></i>
-              <div class="text-lg sm:text-xl font-black text-white">25+</div>
+              <div class="text-lg sm:text-xl font-black text-white">10+</div>
               <div class="text-[10px] sm:text-[11px] font-medium text-dim">Songs Released</div>
             </div>
 
-            <!-- Stat 2 -->
             <div class="dharamveer-card-inner p-4 rounded-xl text-center">
               <i data-lucide="users" class="w-5 h-5 text-cyan-400 mx-auto mb-1.5"></i>
-              <div class="text-lg sm:text-xl font-black text-white">500K+</div>
+              <div class="text-lg sm:text-xl font-black text-white">200K+</div>
               <div class="text-[10px] sm:text-[11px] font-medium text-dim">Listeners</div>
             </div>
 
-            <!-- Stat 3 -->
             <div class="dharamveer-card-inner p-4 rounded-xl text-center">
               <i data-lucide="play-circle" class="w-5 h-5 text-rose-400 mx-auto mb-1.5"></i>
-              <div class="text-lg sm:text-xl font-black text-white">10M+</div>
-              <div class="text-[10px] sm:text-[11px] font-medium text-dim">Streams</div>
+              <div class="text-lg sm:text-xl font-black text-white">500k+</div>
+              <div class="text-[10px] sm:text-[11px] font-medium text-dim">Youtube Views</div>
             </div>
           </div>
         </div>
 
-        <!-- Right: Stylized Wide Cinematic Card -->
         <div class="lg:col-span-6">
           <div class="relative w-full h-[280px] sm:h-[320px] rounded-2xl overflow-hidden border border-surface-borderLight group">
             <img 
               src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=900&q=80" 
               alt="Dharamveer Studio Session" 
               class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 brightness-75"
-              onerror="this.src='https://placehold.co/800x400/12141a/ffffff?text=Dharamveer+Music'"
             >
             <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent flex flex-col justify-center px-8 sm:px-12">
               <h3 class="text-4xl sm:text-5xl font-black tracking-tighter text-white font-display uppercase drop-shadow-md">
@@ -344,41 +314,30 @@
         <h2 class="text-xs sm:text-sm font-bold uppercase tracking-wider text-dim">
           Latest Releases
         </h2>
-        <button onclick="toggleViewAllReleases()" id="viewAllBtn" class="text-xs font-semibold text-zinc-400 hover:text-white transition">
-          View all
-        </button>
       </div>
 
-      <!-- Release Track Cards Grid (4 items) -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         
-        <!-- Track 1: Aawara -->
+        <!-- Track 1: Awara -->
         <div class="dharamveer-card-inner rounded-xl p-3 group relative overflow-hidden transition-all hover:border-surface-borderLight">
           <div class="relative w-full aspect-square rounded-lg overflow-hidden mb-3 bg-zinc-900">
             <img 
-              src="" 
-              alt="Aawara Cover" 
+              src="cover1.jpeg" 
+              alt="Awara Cover" 
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             >
-            <!-- Overlay Title in Image -->
-            <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center pointer-events-none">
+            <!-- <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center pointer-events-none">
               <span class="text-[10px] tracking-widest text-zinc-300 uppercase">Dharamveer</span>
-              <span class="text-xl font-black tracking-widest text-white uppercase font-display">Aawara</span>
-            </div>
+              <span class="text-xl font-black tracking-widest text-white uppercase font-display">Awara</span>
+            </div> -->
 
-            <!-- Floating Play Button -->
-            <button onclick="playAudioSnippet('Aawara', 'Latest Single • 2026')" class="absolute bottom-2 right-2 w-9 h-9 rounded-full bg-white text-black flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition" aria-label="Play Aawara">
+            <button onclick="openSmartLinkModal('Awara')" class="absolute bottom-2 right-2 w-9 h-9 rounded-full bg-white text-black flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition" aria-label="Streaming Links for Aawara">
               <i data-lucide="play" class="w-4 h-4 fill-black ml-0.5"></i>
             </button>
           </div>
-          <div class="flex items-center justify-between">
-            <div>
-              <h3 class="text-sm font-bold text-white leading-tight">Aawara</h3>
-              <p class="text-[11px] text-dim mt-0.5">Latest Single • 2026</p>
-            </div>
-            <button onclick="openSmartLinkModal('Aawara')" class="p-1.5 rounded-md hover:bg-surface-cardHover text-dim hover:text-white" title="Streaming Links">
-              <i data-lucide="share-2" class="w-3.5 h-3.5"></i>
-            </button>
+          <div>
+            <h3 class="text-sm font-bold text-white leading-tight">Aawara</h3>
+            <p class="text-[11px] text-dim mt-0.5">Latest Single • 2026</p>
           </div>
         </div>
 
@@ -386,27 +345,22 @@
         <div class="dharamveer-card-inner rounded-xl p-3 group relative overflow-hidden transition-all hover:border-surface-borderLight">
           <div class="relative w-full aspect-square rounded-lg overflow-hidden mb-3 bg-zinc-900">
             <img 
-              src="" 
+              src="cover2.jpeg" 
               alt="Waang Cover" 
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             >
-            <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-end p-4 pointer-events-none">
+            <!-- <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-end p-4 pointer-events-none">
               <span class="text-[9px] tracking-widest text-amber-300 uppercase">Dharamveer</span>
               <span class="text-lg font-black tracking-wider text-white uppercase font-display">Waang</span>
-            </div>
+            </div> -->
 
-            <button onclick="playAudioSnippet('Waang', 'Single • 2026')" class="absolute bottom-2 right-2 w-9 h-9 rounded-full bg-white text-black flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition" aria-label="Play Waang">
+            <button onclick="openSmartLinkModal('Waang')" class="absolute bottom-2 right-2 w-9 h-9 rounded-full bg-white text-black flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition" aria-label="Streaming Links for Waang">
               <i data-lucide="play" class="w-4 h-4 fill-black ml-0.5"></i>
             </button>
           </div>
-          <div class="flex items-center justify-between">
-            <div>
-              <h3 class="text-sm font-bold text-white leading-tight">Waang</h3>
-              <p class="text-[11px] text-dim mt-0.5">Single • 2026</p>
-            </div>
-            <button onclick="openSmartLinkModal('Waang')" class="p-1.5 rounded-md hover:bg-surface-cardHover text-dim hover:text-white" title="Streaming Links">
-              <i data-lucide="share-2" class="w-3.5 h-3.5"></i>
-            </button>
+          <div>
+            <h3 class="text-sm font-bold text-white leading-tight">Waang</h3>
+            <p class="text-[11px] text-dim mt-0.5">Single • 2026</p>
           </div>
         </div>
 
@@ -414,27 +368,22 @@
         <div class="dharamveer-card-inner rounded-xl p-3 group relative overflow-hidden transition-all hover:border-surface-borderLight">
           <div class="relative w-full aspect-square rounded-lg overflow-hidden mb-3 bg-zinc-900">
             <img 
-              src="" 
+              src="cover3.jpeg" 
               alt="silli silli Cover" 
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             >
-            <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center pointer-events-none">
+            <!-- <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center pointer-events-none">
               <span class="text-[9px] tracking-widest text-zinc-300 uppercase">Dharamveer</span>
               <span class="text-xl font-black tracking-widest text-white uppercase font-display">silli silli</span>
-            </div>
+            </div> -->
 
-            <button onclick="playAudioSnippet('silli silli', 'Single • 2026')" class="absolute bottom-2 right-2 w-9 h-9 rounded-full bg-white text-black flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition" aria-label="Play silli silli">
+            <button onclick="openSmartLinkModal('silli silli')" class="absolute bottom-2 right-2 w-9 h-9 rounded-full bg-white text-black flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition" aria-label="Streaming Links for silli silli">
               <i data-lucide="play" class="w-4 h-4 fill-black ml-0.5"></i>
             </button>
           </div>
-          <div class="flex items-center justify-between">
-            <div>
-              <h3 class="text-sm font-bold text-white leading-tight">silli silli</h3>
-              <p class="text-[11px] text-dim mt-0.5">Single • 2026</p>
-            </div>
-            <button onclick="openSmartLinkModal('silli silli')" class="p-1.5 rounded-md hover:bg-surface-cardHover text-dim hover:text-white" title="Streaming Links">
-              <i data-lucide="share-2" class="w-3.5 h-3.5"></i>
-            </button>
+          <div>
+            <h3 class="text-sm font-bold text-white leading-tight">silli silli</h3>
+            <p class="text-[11px] text-dim mt-0.5">Single • 2026</p>
           </div>
         </div>
 
@@ -442,58 +391,29 @@
         <div class="dharamveer-card-inner rounded-xl p-3 group relative overflow-hidden transition-all hover:border-surface-borderLight">
           <div class="relative w-full aspect-square rounded-lg overflow-hidden mb-3 bg-zinc-900">
             <img 
-              src="" 
+              src="cover4.jpeg" 
               alt="Value Cover" 
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             >
-            <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center pointer-events-none">
+            <!-- <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center pointer-events-none">
               <span class="text-[9px] tracking-widest text-zinc-400 uppercase">Dharamveer</span>
               <span class="text-xl font-black tracking-widest text-white uppercase font-display">Value</span>
-            </div>
+            </div> -->
 
-            <button onclick="playAudioSnippet('Value', 'Single • 2026')" class="absolute bottom-2 right-2 w-9 h-9 rounded-full bg-white text-black flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition" aria-label="Play Value">
+            <button onclick="openSmartLinkModal('Value')" class="absolute bottom-2 right-2 w-9 h-9 rounded-full bg-white text-black flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition" aria-label="Streaming Links for Value">
               <i data-lucide="play" class="w-4 h-4 fill-black ml-0.5"></i>
             </button>
           </div>
-          <div class="flex items-center justify-between">
-            <div>
-              <h3 class="text-sm font-bold text-white leading-tight">Value</h3>
-              <p class="text-[11px] text-dim mt-0.5">Single • 2026</p>
-            </div>
-            <button onclick="openSmartLinkModal('Value')" class="p-1.5 rounded-md hover:bg-surface-cardHover text-dim hover:text-white" title="Streaming Links">
-              <i data-lucide="share-2" class="w-3.5 h-3.5"></i>
-            </button>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Live Interactive Mini-Player Bar -->
-      <div id="livePlayerBar" class="hidden dharamveer-card-inner p-3 rounded-xl flex items-center justify-between gap-4 border border-indigo-500/30">
-        <div class="flex items-center gap-3">
-          <button onclick="toggleAudioPreviewState()" id="playerPlayBtn" class="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center shadow">
-            <i data-lucide="pause" id="playerPlayIcon" class="w-4 h-4 fill-black"></i>
-          </button>
           <div>
-            <div class="text-xs font-bold text-white flex items-center gap-2">
-              <span id="playerTrackTitle">Aawara</span>
-              <span class="text-[10px] font-semibold text-emerald-400 bg-emerald-950/80 px-1.5 py-0.5 rounded">Previewing</span>
-            </div>
-            <p id="playerTrackMeta" class="text-[10px] text-dim">Dharamveer • 2026</p>
+            <h3 class="text-sm font-bold text-white leading-tight">Value</h3>
+            <p class="text-[11px] text-dim mt-0.5">Single • 2026</p>
           </div>
         </div>
-        <div class="flex-1 max-w-xs hidden sm:block">
-          <div class="w-full bg-zinc-800 rounded-full h-1.5 overflow-hidden">
-            <div id="playerProgress" class="bg-white h-full w-1/3 transition-all"></div>
-          </div>
-        </div>
-        <button onclick="closePlayer()" class="text-dim hover:text-white p-1">
-          <i data-lucide="x" class="w-4 h-4"></i>
-        </button>
+
       </div>
     </section>
 
-    <!-- SECTION 5: LISTEN ON (Music Platform Buttons) -->
+    <!-- SECTION 5: LISTEN ON -->
     <section class="dharamveer-card p-6">
       <h2 class="text-xs sm:text-sm font-bold uppercase tracking-wider text-dim mb-4">
         Listen On
@@ -502,7 +422,7 @@
       <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
         
         <!-- Spotify -->
-        <a href="https://spotify.com" target="_blank" rel="noopener noreferrer" class="dharamveer-card-inner hover:bg-surface-cardHover p-2.5 rounded-xl flex items-center gap-2.5 border border-surface-border transition group">
+        <a href="https://open.spotify.com/artist/11rYn2FpTkZTTvLQtgEha4" target="_blank" rel="noopener noreferrer" class="dharamveer-card-inner hover:bg-surface-cardHover p-2.5 rounded-xl flex items-center gap-2.5 border border-surface-border transition group">
           <div class="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center text-black shrink-0">
             <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
           </div>
@@ -513,7 +433,7 @@
         </a>
 
         <!-- Apple Music -->
-        <a href="https://music.apple.com" target="_blank" rel="noopener noreferrer" class="dharamveer-card-inner hover:bg-surface-cardHover p-2.5 rounded-xl flex items-center gap-2.5 border border-surface-border transition group">
+        <a href="https://music.apple.com/us/artist/dharamveer-sahota/1722774540" target="_blank" rel="noopener noreferrer" class="dharamveer-card-inner hover:bg-surface-cardHover p-2.5 rounded-xl flex items-center gap-2.5 border border-surface-border transition group">
           <div class="w-8 h-8 rounded-lg bg-rose-500 flex items-center justify-center text-white shrink-0">
             <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 1.01-2.85-.9.04-1.99.6-2.61 1.34-.55.63-1.03 1.66-.99 2.69 1.01.08 2.05-.52 2.59-1.18z"/></svg>
           </div>
@@ -524,7 +444,7 @@
         </a>
 
         <!-- YouTube Music -->
-        <a href="https://music.youtube.com" target="_blank" rel="noopener noreferrer" class="dharamveer-card-inner hover:bg-surface-cardHover p-2.5 rounded-xl flex items-center gap-2.5 border border-surface-border transition group">
+        <a href="https://music.youtube.com/@Dharamveersahota" target="_blank" rel="noopener noreferrer" class="dharamveer-card-inner hover:bg-surface-cardHover p-2.5 rounded-xl flex items-center gap-2.5 border border-surface-border transition group">
           <div class="w-8 h-8 rounded-lg bg-red-600 flex items-center justify-center text-white shrink-0">
             <i data-lucide="play-circle" class="w-4 h-4"></i>
           </div>
@@ -535,7 +455,7 @@
         </a>
 
         <!-- JioSaavn -->
-        <a href="https://www.jiosaavn.com" target="_blank" rel="noopener noreferrer" class="dharamveer-card-inner hover:bg-surface-cardHover p-2.5 rounded-xl flex items-center gap-2.5 border border-surface-border transition group">
+        <a href="https://www.jiosaavn.com/label/dharamveer-sahota-songs/cf2T0u2kQAg_" target="_blank" rel="noopener noreferrer" class="dharamveer-card-inner hover:bg-surface-cardHover p-2.5 rounded-xl flex items-center gap-2.5 border border-surface-border transition group">
           <div class="w-8 h-8 rounded-lg bg-teal-600 flex items-center justify-center text-white font-black text-xs shrink-0">
             JS
           </div>
@@ -545,7 +465,7 @@
           </div>
         </a>
 
-        <!-- Amazon Music -->
+        <!-- Amazon Music
         <a href="https://music.amazon.com" target="_blank" rel="noopener noreferrer" class="dharamveer-card-inner hover:bg-surface-cardHover p-2.5 rounded-xl flex items-center gap-2.5 border border-surface-border transition group">
           <div class="w-8 h-8 rounded-lg bg-cyan-600 flex items-center justify-center text-white shrink-0">
             <i data-lucide="music" class="w-4 h-4"></i>
@@ -556,7 +476,7 @@
           </div>
         </a>
 
-        <!-- Wynk Music -->
+        Wynk Music
         <a href="https://wynk.in" target="_blank" rel="noopener noreferrer" class="dharamveer-card-inner hover:bg-surface-cardHover p-2.5 rounded-xl flex items-center gap-2.5 border border-surface-border transition group">
           <div class="w-8 h-8 rounded-lg bg-rose-700 flex items-center justify-center text-white shrink-0">
             <i data-lucide="disc" class="w-4 h-4"></i>
@@ -565,10 +485,10 @@
             <span class="text-[9px] text-dim block leading-none">Listen on</span>
             <span class="text-xs font-bold text-white group-hover:text-rose-400 transition-colors">Wynk Music</span>
           </div>
-        </a>
+        </a> -->
 
         <!-- Gaana -->
-        <a href="https://gaana.com" target="_blank" rel="noopener noreferrer" class="dharamveer-card-inner hover:bg-surface-cardHover p-2.5 rounded-xl flex items-center gap-2.5 border border-surface-border transition group">
+        <a href="https://gaana.com/artist/dharamveer-sahota " target="_blank" rel="noopener noreferrer" class="dharamveer-card-inner hover:bg-surface-cardHover p-2.5 rounded-xl flex items-center gap-2.5 border border-surface-border transition group">
           <div class="w-8 h-8 rounded-lg bg-red-500 flex items-center justify-center text-white font-black text-sm shrink-0">
             g
           </div>
@@ -595,12 +515,12 @@
           </p>
         </div>
 
-        <!-- Col 2: Booking & Inquiries -->
+        <!-- Col 2: Contact -->
         <div class="space-y-3">
-          <h3 class="text-xs font-bold uppercase tracking-wider text-white mb-3">Booking & Inquiries</h3>
+          <h3 class="text-xs font-bold uppercase tracking-wider text-white mb-3">Contact</h3>
           <p class="text-xs text-dim leading-relaxed">
-            Email: <a href="mailto:contact@xyz.com" class="text-zinc-300 hover:text-white">contact@xyz.com</a><br>
-            Phone: <span class="text-zinc-300">+91 12345 67890</span>
+            <span class="text-zinc-300">Contact FameOrigin to enquire about this page</span><br>
+            Email: <a href="https://www.fameorigin.com/" class="underline underline-offset-4 decoration-sky-400 text-white drop-shadow-[0_0_6px_rgba(56,189,248,0.7)] transition-all">fameorigin.com</a><br>
           </p>
         </div>
 
@@ -608,63 +528,6 @@
     </footer>
 
   </main>
-
-  <!-- Booking & Inquiries Modal -->
-  <div id="bookingModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-200">
-    <div class="dharamveer-card w-full max-w-md p-6 border border-surface-borderLight shadow-2xl relative">
-      <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-dim hover:text-white p-1 rounded-full bg-surface-cardInner">
-        <i data-lucide="x" class="w-4 h-4"></i>
-      </button>
-
-      <div class="text-center mb-5">
-        <h3 class="text-lg font-bold text-white uppercase font-display">Book Dharamveer</h3>
-        <p class="text-xs text-dim mt-1">Concerts, Live Shows, & Brand Collaborations</p>
-      </div>
-
-      <form onsubmit="handleBookingSubmit(event)" class="space-y-3 text-left">
-        <div>
-          <label class="text-[11px] text-dim block mb-1">Your Name / Organization</label>
-          <input required type="text" placeholder="e.g. Festival Director / Event Agency" class="w-full text-xs px-3 py-2 rounded-xl bg-surface-cardInner border border-surface-border text-white placeholder-zinc-500 focus:outline-none focus:border-surface-borderLight">
-        </div>
-        <div>
-          <label class="text-[11px] text-dim block mb-1">Email Address</label>
-          <input required type="email" placeholder="agent@events.com" class="w-full text-xs px-3 py-2 rounded-xl bg-surface-cardInner border border-surface-border text-white placeholder-zinc-500 focus:outline-none focus:border-surface-borderLight">
-        </div>
-        <div>
-          <label class="text-[11px] text-dim block mb-1">Event City & Date</label>
-          <input type="text" placeholder="Mumbai • Nov 2026" class="w-full text-xs px-3 py-2 rounded-xl bg-surface-cardInner border border-surface-border text-white placeholder-zinc-500 focus:outline-none focus:border-surface-borderLight">
-        </div>
-        <div>
-          <label class="text-[11px] text-dim block mb-1">Inquiry Details</label>
-          <textarea rows="3" placeholder="Tell us about the event or project..." class="w-full text-xs px-3 py-2 rounded-xl bg-surface-cardInner border border-surface-border text-white placeholder-zinc-500 focus:outline-none focus:border-surface-borderLight"></textarea>
-        </div>
-        <button type="submit" class="w-full py-2.5 rounded-full bg-white text-black font-bold text-xs hover:bg-zinc-200 transition shadow">
-          Send Inquiry
-        </button>
-      </form>
-    </div>
-  </div>
-
-  <!-- Video Modal -->
-  <div id="videoModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-200">
-    <div class="dharamveer-card w-full max-w-2xl p-4 border border-surface-borderLight shadow-2xl relative">
-      <div class="flex items-center justify-between pb-3 mb-2 border-b border-surface-border">
-        <h4 class="text-sm font-bold text-white">Dharamveer - Official Music Reel</h4>
-        <button onclick="closeVideoModal()" class="text-dim hover:text-white p-1 rounded-full">
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
-      </div>
-      <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-black flex items-center justify-center">
-        <div class="text-center p-6 space-y-3">
-          <div class="w-16 h-16 rounded-full bg-white/10 border border-white/30 flex items-center justify-center mx-auto text-white">
-            <i data-lucide="film" class="w-8 h-8"></i>
-          </div>
-          <p class="text-sm font-medium text-white">Dream. Create. Inspire. Documentary & Live Sessions</p>
-          <p class="text-xs text-dim">Playing high-definition artist reel snippet</p>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Smart Link Streaming Platform Modal -->
   <div id="smartLinkModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-200">
@@ -680,19 +543,19 @@
       </div>
 
       <div class="space-y-2">
-        <a href="https://spotify.com" target="_blank" rel="noopener noreferrer" class="dharamveer-card-inner hover:bg-surface-cardHover p-3 rounded-xl flex items-center justify-between transition group">
+        <a href="https://open.spotify.com/artist/11rYn2FpTkZTTvLQtgEha4" target="_blank" rel="noopener noreferrer" class="dharamveer-card-inner hover:bg-surface-cardHover p-3 rounded-xl flex items-center justify-between transition group">
           <span class="text-xs font-bold text-white">Spotify</span>
           <span class="text-xs font-semibold text-emerald-400 group-hover:underline">Play</span>
         </a>
-        <a href="https://music.apple.com" target="_blank" rel="noopener noreferrer" class="dharamveer-card-inner hover:bg-surface-cardHover p-3 rounded-xl flex items-center justify-between transition group">
+        <a href="https://music.apple.com/us/artist/dharamveer-sahota/1722774540" target="_blank" rel="noopener noreferrer" class="dharamveer-card-inner hover:bg-surface-cardHover p-3 rounded-xl flex items-center justify-between transition group">
           <span class="text-xs font-bold text-white">Apple Music</span>
           <span class="text-xs font-semibold text-rose-400 group-hover:underline">Play</span>
         </a>
-        <a href="https://music.youtube.com" target="_blank" rel="noopener noreferrer" class="dharamveer-card-inner hover:bg-surface-cardHover p-3 rounded-xl flex items-center justify-between transition group">
+        <a href="https://www.youtube.com/@Dharamveersahota" target="_blank" rel="noopener noreferrer" class="dharamveer-card-inner hover:bg-surface-cardHover p-3 rounded-xl flex items-center justify-between transition group">
           <span class="text-xs font-bold text-white">YouTube Music</span>
           <span class="text-xs font-semibold text-red-400 group-hover:underline">Watch</span>
         </a>
-        <a href="https://www.jiosaavn.com" target="_blank" rel="noopener noreferrer" class="dharamveer-card-inner hover:bg-surface-cardHover p-3 rounded-xl flex items-center justify-between transition group">
+        <a href="https://www.jiosaavn.com/label/dharamveer-sahota-songs/cf2T0u2kQAg_" target="_blank" rel="noopener noreferrer" class="dharamveer-card-inner hover:bg-surface-cardHover p-3 rounded-xl flex items-center justify-between transition group">
           <span class="text-xs font-bold text-white">JioSaavn</span>
           <span class="text-xs font-semibold text-teal-400 group-hover:underline">Play</span>
         </a>
@@ -700,163 +563,22 @@
     </div>
   </div>
 
-  <!-- Toast Feedback UI -->
-  <div id="toast" class="fixed bottom-5 right-5 z-50 bg-white text-black px-4 py-2 rounded-xl shadow-xl text-xs font-bold transition-all duration-300 opacity-0 -translate-y-4 pointer-events-none flex items-center gap-2">
-    <span id="toastMsg"></span>
-  </div>
-
   <script>
     // Initialize Lucide Icons
     lucide.createIcons();
 
-    // Web Audio preview synthesizer for sound simulation
-    let audioCtx = null;
-    let osc = null;
-    let gain = null;
-    let isAudioPlaying = false;
-    let previewProgressInterval = null;
-    let currentProgress = 0;
-
-    function startSyntheticAudio() {
-      try {
-        const AudioContext = window.AudioContext || window.webkitAudioContext;
-        if (!AudioContext) return;
-        if (!audioCtx) audioCtx = new AudioContext();
-        if (audioCtx.state === 'suspended') audioCtx.resume();
-
-        osc = audioCtx.createOscillator();
-        gain = audioCtx.createGain();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(261.63, audioCtx.currentTime);
-        gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
-
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-        osc.start();
-      } catch (err) {
-        console.log('Synthesizer info:', err);
-      }
-    }
-
-    function stopSyntheticAudio() {
-      if (osc) {
-        try {
-          osc.stop();
-          osc.disconnect();
-        } catch(e){}
-        osc = null;
-      }
-    }
-
-    function playAudioSnippet(trackTitle, metaInfo) {
-      const player = document.getElementById('livePlayerBar');
-      player.classList.remove('hidden');
-
-      document.getElementById('playerTrackTitle').textContent = trackTitle;
-      document.getElementById('playerTrackMeta').textContent = metaInfo;
-
-      isAudioPlaying = true;
-      startSyntheticAudio();
-      updatePlayerButtonUI(true);
-
-      currentProgress = 0;
-      clearInterval(previewProgressInterval);
-      previewProgressInterval = setInterval(() => {
-        currentProgress += 2;
-        if (currentProgress > 100) currentProgress = 0;
-        document.getElementById('playerProgress').style.width = currentProgress + '%';
-      }, 300);
-
-      showToast(`Playing 30s snippet of "${trackTitle}"`);
-    }
-
-    function toggleAudioPreviewState() {
-      if (isAudioPlaying) {
-        stopSyntheticAudio();
-        clearInterval(previewProgressInterval);
-        isAudioPlaying = false;
-        updatePlayerButtonUI(false);
-      } else {
-        startSyntheticAudio();
-        isAudioPlaying = true;
-        updatePlayerButtonUI(true);
-      }
-    }
-
-    function updatePlayerButtonUI(playing) {
-      const icon = document.getElementById('playerPlayIcon');
-      if (playing) {
-        icon.setAttribute('data-lucide', 'pause');
-      } else {
-        icon.setAttribute('data-lucide', 'play');
-      }
-      lucide.createIcons();
-    }
-
-    function closePlayer() {
-      stopSyntheticAudio();
-      clearInterval(previewProgressInterval);
-      isAudioPlaying = false;
-      document.getElementById('livePlayerBar').classList.add('hidden');
-    }
-
-    // Modal Handlers
-    function openVideoModal() {
-      const m = document.getElementById('videoModal');
-      m.classList.remove('opacity-0', 'pointer-events-none');
-      m.classList.add('opacity-100');
-    }
-    function closeVideoModal() {
-      const m = document.getElementById('videoModal');
-      m.classList.remove('opacity-100');
-      m.classList.add('opacity-0', 'pointer-events-none');
-    }
-
+    // Streaming Platform Modal Handlers
     function openSmartLinkModal(song) {
       document.getElementById('modalSongTitle').textContent = song;
-      const m = document.getElementById('smartLinkModal');
-      m.classList.remove('opacity-0', 'pointer-events-none');
-      m.classList.add('opacity-100');
+      const modal = document.getElementById('smartLinkModal');
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modal.classList.add('opacity-100');
     }
+
     function closeSmartLinkModal() {
-      const m = document.getElementById('smartLinkModal');
-      m.classList.remove('opacity-100');
-      m.classList.add('opacity-0', 'pointer-events-none');
-    }
-
-    function closeBookingModal() {
-      const m = document.getElementById('bookingModal');
-      m.classList.remove('opacity-100');
-      m.classList.add('opacity-0', 'pointer-events-none');
-    }
-
-    function handleBookingSubmit(e) {
-      e.preventDefault();
-      closeBookingModal();
-      showToast('Inquiry sent to Dharamveer management team!');
-    }
-
-    function toggleViewAllReleases() {
-      const btn = document.getElementById('viewAllBtn');
-      if (btn.textContent.trim() === 'View all') {
-        btn.textContent = 'Show less';
-        showToast('Displaying all catalog singles & EPs');
-      } else {
-        btn.textContent = 'View all';
-      }
-    }
-
-    function showToast(msg) {
-      const toast = document.getElementById('toast');
-      const toastMsg = document.getElementById('toastMsg');
-      toastMsg.textContent = msg;
-      toast.classList.remove('opacity-0', '-translate-y-4', 'pointer-events-none');
-      toast.classList.add('opacity-100', 'translate-y-0');
-
-      setTimeout(() => {
-        toast.classList.remove('opacity-100', 'translate-y-0');
-        toast.classList.add('opacity-0', '-translate-y-4', 'pointer-events-none');
-      }, 3000);
+      const modal = document.getElementById('smartLinkModal');
+      modal.classList.remove('opacity-100');
+      modal.classList.add('opacity-0', 'pointer-events-none');
     }
   </script>
 </body>
